@@ -13,6 +13,7 @@ live"
 @onready var players_done: Node2D = $PlayersDone
 @onready var players: Node2D = $"../../Players"
 @onready var save_states: Node = $"../../SaveStates"
+@onready var removed: TextureRect = $TextureRect
 
 var player_idx_owned := []
 
@@ -29,6 +30,7 @@ func reload_data(data) -> void:
 	for i in players_done.get_children():
 		i.hide()
 	label.modulate.a = 1
+	removed.visible = !(data.size() == 0)
 	if data.size() == 0: return
 	label.modulate.a = 0.5
 	var idx := 0

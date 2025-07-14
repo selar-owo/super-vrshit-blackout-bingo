@@ -1,7 +1,7 @@
 extends Node2D
 class_name Bi12ngler
 
-const VER := 1.1
+const VER := 2
 
 var currently_selected := []
 var quotes := [

@@ -12,7 +12,7 @@ func _ready() -> void:
 	if !bingo_check:
 		config.set_value("BINGO","bingo_data",{0: [],1: [],2: [],3: [],4: [],5: [],6: [],7: [],8: [],9: [],10: [],11: [],12: [],13: [],14: [],15: [],16: [],17: [],18: [],19: [],20: [],21: [],22: [],23: [],24: []})
 		config.set_value("BINGO","settings_data",{
-			"music": true,
+			"music": false,
 		})
 		config.save(save_file)
 		print("created bingo file")
