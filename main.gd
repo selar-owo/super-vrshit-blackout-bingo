@@ -1,6 +1,8 @@
 extends Node2D
 class_name Bi12ngler
 
+const VER := 1.1
+
 var currently_selected := []
 var quotes := [
 	"DO not let Jay know about this he will Block me again",
@@ -17,8 +19,13 @@ var quotes := [
 @onready var players: Node2D = $Players
 
 func _ready() -> void:
+	version_handler()
+
+func version_handler() -> void:
 	if randi_range(1,10) == 1:
 		get_window().title = quotes.pick_random()
+		return
+	get_window().title += str(" U",VER)
 
 func updated_toggled() -> void:
 	currently_selected = []
@@ -26,8 +33,8 @@ func updated_toggled() -> void:
 		b.button.disabled = false
 	for i in players.get_children():
 		if i.button.is_pressed():
-			currently_selected.append(i.name)
-		if currently_selected.size() >= 4:
+			currently_selected.append(i.get_index())
+		if currently_selected.size() >= 8:
 			for b in players.get_children():
 				if !b.button.is_pressed(): b.button.disabled = true
 			return

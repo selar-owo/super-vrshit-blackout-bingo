@@ -28,11 +28,12 @@ bg_color = Color(1, 1, 1, 0.138)
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jlfe6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5q0wv"]
-bg_color = Color(0.23, 0.23, 0.23, 0)
+bg_color = Color(0.847656, 0.847656, 0.847656, 0)
 border_width_left = 2
 border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
+border_color = Color(0.848, 0.848, 0.848, 0.443)
 expand_margin_left = 2.0
 expand_margin_top = 2.0
 expand_margin_right = 2.0
@@ -52,7 +53,7 @@ tracks/0/path = NodePath("NameLabel:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(-0.0333333, 0.51),
+"times": PackedFloat32Array(0, 0.51),
 "transitions": PackedFloat32Array(0.34151, 1),
 "update": 0,
 "values": [Vector2(14, -4), Vector2(19.7143, -4)]
@@ -74,7 +75,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_31v70"]
-resource_name = "tog_true_2"
+resource_name = "tog_false"
 length = 0.55
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -92,8 +93,8 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_drfw0"]
 _data = {
 &"RESET": SubResource("Animation_5q0wv"),
-&"tog_true": SubResource("Animation_h7i7s"),
-&"tog_true_2": SubResource("Animation_31v70")
+&"tog_false": SubResource("Animation_31v70"),
+&"tog_true": SubResource("Animation_h7i7s")
 }
 
 [node name="Player" type="Node2D"]
@@ -120,6 +121,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_5q0wv")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_njdyx")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_lalnp")
 toggle_mode = true
+action_mode = 0
 
 [node name="ButtonSoundComponent" parent="Button" instance=ExtResource("4_h7i7s")]
 
@@ -128,7 +130,6 @@ position = Vector2(6, 6)
 texture = ExtResource("1_1bxay")
 
 [node name="NameLabel" type="Label" parent="."]
-self_modulate = Color(1.2, 1.2, 1.2, 1)
 offset_left = 14.0
 offset_top = -4.0
 offset_right = 64.0

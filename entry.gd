@@ -12,16 +12,28 @@ live"
 @onready var bingler: Bi12ngler = $"../.."
 @onready var players_done: Node2D = $PlayersDone
 @onready var players: Node2D = $"../../Players"
+@onready var save_states: Node = $"../../SaveStates"
+
+var player_idx_owned := []
 
 func _ready() -> void:
 	label.text = entry_title
 	button.button_down.connect(func()->void:
-		for i in players_done.get_children():
-			i.hide()
-		if bingler.currently_selected.size() == 0: return
-		var idx := 0
-		for i in bingler.currently_selected:
-			players_done.get_child(idx).color = players.get_player(i).player_color
-			players_done.get_child(idx).show()
-			idx += 1
+		reload_data(bingler.currently_selected)
+		save_states.save_bingoboard()
 		)
+
+func reload_data(data) -> void:
+	print("reloading ",data)
+	player_idx_owned = []
+	for i in players_done.get_children():
+		i.hide()
+	label.modulate.a = 1
+	if data.size() == 0: return
+	label.modulate.a = 0.5
+	var idx := 0
+	for i in data:
+		players_done.get_child(idx).modulate = players.get_player(str("Player",i+1)).player_color
+		players_done.get_child(idx).show()
+		player_idx_owned.append(players.get_player(str("Player",i+1)).get_index())
+		idx += 1

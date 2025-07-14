@@ -1,12 +1,12 @@
-[gd_scene load_steps=28 format=3 uid="uid://baaq25cb3jgsy"]
+[gd_scene load_steps=25 format=3 uid="uid://baaq25cb3jgsy"]
 
+[ext_resource type="Texture2D" uid="uid://blvdcnielhieh" path="res://logo.png" id="1_b7mjk"]
 [ext_resource type="Shader" uid="uid://bthbja5ox6f5f" path="res://shitter.gdshader" id="1_maqf1"]
 [ext_resource type="Script" uid="uid://chc44pjr73if1" path="res://main.gd" id="1_yjvsj"]
 [ext_resource type="Texture2D" uid="uid://bkleyhserwlp4" path="res://chart.png" id="2_3rk0a"]
 [ext_resource type="Script" uid="uid://yr0mpru81dif" path="res://SaveStates.gd" id="2_4k8pt"]
 [ext_resource type="PackedScene" uid="uid://bwdjdohxpd5gk" path="res://repeaters/player.tscn" id="3_pefgf"]
 [ext_resource type="AudioStream" uid="uid://cjtltd7ewpid4" path="res://farts/wii-startup-sound.mp3" id="4_7iper"]
-[ext_resource type="Texture2D" uid="uid://bhnrwss8y7nru" path="res://logoShit.png" id="4_mafyr"]
 [ext_resource type="PackedScene" uid="uid://bvmb8oothbh8h" path="res://repeaters/entry.tscn" id="4_pefgf"]
 [ext_resource type="Script" uid="uid://xf1bqx0fdeuf" path="res://players.gd" id="5_el7o5"]
 [ext_resource type="AudioStream" uid="uid://b5lro2qd7k1j6" path="res://farts/videoplayback (2) (1).mp3" id="5_pefgf"]
@@ -14,9 +14,6 @@
 [ext_resource type="Texture2D" uid="uid://cgadmrfrv41wh" path="res://musicenabled.png" id="7_j6loh"]
 [ext_resource type="Script" uid="uid://cw55yxuo17b7q" path="res://musictoggle.gd" id="7_wlbx0"]
 [ext_resource type="PackedScene" uid="uid://c0lpkr8kyv1jt" path="res://repeaters/button_sound_component.tscn" id="10_byip8"]
-[ext_resource type="Texture2D" uid="uid://biendmmqs8k43" path="res://importsettings.png" id="13_dq6rl"]
-[ext_resource type="Script" uid="uid://coy1wqdohctxq" path="res://import_and_export.gd" id="13_mafyr"]
-[ext_resource type="Texture2D" uid="uid://cad7rs5k66wvx" path="res://settingslocation.png" id="14_ntroj"]
 
 [sub_resource type="Gradient" id="Gradient_maqf1"]
 offsets = PackedFloat32Array(0.00862069, 1)
@@ -52,46 +49,70 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Intro2/Logo:self_modulate")
+tracks/0/path = NodePath("Intro2/IntroSOund:playing")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
+"update": 1,
+"values": [false]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Intro2:modulate")
+tracks/1/path = NodePath("Intro2/Music:playing")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
+"update": 1,
+"values": [false]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Intro2/Logo:position")
+tracks/2/path = NodePath("Intro2/Logo:self_modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(325, 258)]
+"values": [Color(1, 1, 1, 1)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Intro2:visible")
+tracks/3/path = NodePath("Intro2:modulate")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Intro2/Logo:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(325, 258)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Intro2:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -104,46 +125,70 @@ length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Intro2/Logo:self_modulate")
+tracks/0/path = NodePath("Intro2/IntroSOund:playing")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Intro2/Music:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0333333),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Intro2/Logo:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
 "times": PackedFloat32Array(0.0666667, 0.433333, 0.833333),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(2, 2, 2, 1), Color(1, 1, 1, 1)]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Intro2:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Intro2:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
 "times": PackedFloat32Array(0.0666667, 1.23333, 1.9),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Intro2/Logo:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Intro2/Logo:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
 "times": PackedFloat32Array(0, 1.13333, 1.9),
 "transitions": PackedFloat32Array(1, 4.59479, 1),
 "update": 0,
 "values": [Vector2(325, 258), Vector2(325, 258), Vector2(325, 474)]
 }
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Intro2:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Intro2:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
 "times": PackedFloat32Array(0, 2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
@@ -179,7 +224,7 @@ metadata/_edit_lock_ = true
 
 [node name="Logo" type="Sprite2D" parent="."]
 position = Vector2(410, 59)
-texture = ExtResource("4_mafyr")
+texture = ExtResource("1_b7mjk")
 
 [node name="Chart" type="Sprite2D" parent="."]
 position = Vector2(409, 310)
@@ -383,27 +428,6 @@ script = ExtResource("7_wlbx0")
 
 [node name="ButtonSoundComponent" parent="MusicToggle" instance=ExtResource("10_byip8")]
 
-[node name="ImportAndExport" type="Node2D" parent="."]
-script = ExtResource("13_mafyr")
-
-[node name="ImportSettings" type="TextureButton" parent="ImportAndExport"]
-offset_left = 66.0
-offset_top = 511.0
-offset_right = 108.0
-offset_bottom = 544.0
-texture_normal = ExtResource("13_dq6rl")
-
-[node name="ButtonSoundComponent" parent="ImportAndExport/ImportSettings" instance=ExtResource("10_byip8")]
-
-[node name="SettingsLocation" type="TextureButton" parent="ImportAndExport"]
-offset_left = 114.0
-offset_top = 512.0
-offset_right = 156.0
-offset_bottom = 545.0
-texture_normal = ExtResource("14_ntroj")
-
-[node name="ButtonSoundComponent" parent="ImportAndExport/SettingsLocation" instance=ExtResource("10_byip8")]
-
 [node name="Intro2" type="Node2D" parent="."]
 visible = false
 
@@ -416,12 +440,10 @@ metadata/_edit_lock_ = true
 [node name="IntroSOund" type="AudioStreamPlayer" parent="Intro2"]
 stream = ExtResource("4_7iper")
 volume_db = -12.356
-autoplay = true
 
 [node name="Music" type="AudioStreamPlayer" parent="Intro2"]
 stream = ExtResource("5_pefgf")
 volume_db = -12.356
-autoplay = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Intro2"]
 root_node = NodePath("../..")
@@ -433,11 +455,4 @@ autoplay = "intro"
 [node name="Logo" type="Sprite2D" parent="Intro2"]
 position = Vector2(325, 258)
 scale = Vector2(1.22549, 1.22549)
-texture = ExtResource("4_mafyr")
-
-[node name="FileDialog" type="FileDialog" parent="."]
-title = "Open a File"
-ok_button_text = "Open"
-file_mode = 0
-access = 2
-use_native_dialog = true
+texture = ExtResource("1_b7mjk")

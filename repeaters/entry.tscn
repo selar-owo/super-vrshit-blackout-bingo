@@ -1,8 +1,9 @@
-[gd_scene load_steps=16 format=3 uid="uid://bvmb8oothbh8h"]
+[gd_scene load_steps=17 format=3 uid="uid://bvmb8oothbh8h"]
 
 [ext_resource type="FontFile" uid="uid://c6ltgp5hhgwb4" path="res://farts/MucitanSans-Bold.otf" id="1_dqryq"]
 [ext_resource type="Script" uid="uid://bbx7c1e8xva1v" path="res://entry.gd" id="1_mvhdr"]
 [ext_resource type="PackedScene" uid="uid://c0lpkr8kyv1jt" path="res://repeaters/button_sound_component.tscn" id="3_ufqy0"]
+[ext_resource type="Texture2D" uid="uid://wlkui1q8vnp6" path="res://color.png" id="4_cflyo"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ufqy0"]
 
@@ -37,44 +38,6 @@ outline_size = 4
 [node name="Entry" type="Node2D"]
 script = ExtResource("1_mvhdr")
 
-[node name="PlayersDone" type="Node2D" parent="."]
-scale = Vector2(1.008, 1.008)
-
-[node name="Player1" type="ColorRect" parent="PlayersDone"]
-visible = false
-offset_right = 76.0
-offset_bottom = 76.0
-mouse_filter = 2
-color = Color(1, 0, 0, 1)
-
-[node name="Player2" type="ColorRect" parent="PlayersDone"]
-visible = false
-offset_left = 38.0
-offset_right = 76.0
-offset_bottom = 76.0
-mouse_filter = 2
-color = Color(0, 0.226563, 1, 1)
-
-[node name="Player3" type="ColorRect" parent="PlayersDone"]
-visible = false
-offset_left = 76.0
-offset_top = 38.0
-offset_right = 114.0
-offset_bottom = 114.0
-rotation = 1.57079
-mouse_filter = 2
-color = Color(0.078125, 1, 0, 1)
-
-[node name="Player4" type="ColorRect" parent="PlayersDone"]
-visible = false
-offset_left = 76.0
-offset_top = 38.0
-offset_right = 114.0
-offset_bottom = 76.0
-rotation = 1.57079
-mouse_filter = 2
-color = Color(0.921875, 1, 0, 1)
-
 [node name="Button" type="Button" parent="."]
 offset_right = 77.0
 offset_bottom = 77.0
@@ -103,3 +66,78 @@ label_settings = SubResource("LabelSettings_mvhdr")
 horizontal_alignment = 1
 vertical_alignment = 1
 clip_text = true
+
+[node name="PlayersDone" type="Node2D" parent="."]
+scale = Vector2(1.008, 1.008)
+
+[node name="Player1" type="TextureRect" parent="PlayersDone"]
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 8.0
+offset_bottom = 8.0
+mouse_filter = 2
+texture = ExtResource("4_cflyo")
+expand_mode = 1
+
+[node name="Player2" type="TextureRect" parent="PlayersDone"]
+offset_left = 1.0
+offset_top = 8.93651
+offset_right = 8.0
+offset_bottom = 15.9365
+mouse_filter = 2
+texture = ExtResource("4_cflyo")
+expand_mode = 1
+
+[node name="Player3" type="TextureRect" parent="PlayersDone"]
+offset_left = 1.0
+offset_top = 16.873
+offset_right = 8.0
+offset_bottom = 23.873
+mouse_filter = 2
+texture = ExtResource("4_cflyo")
+expand_mode = 1
+
+[node name="Player4" type="TextureRect" parent="PlayersDone"]
+offset_left = 1.0
+offset_top = 24.8095
+offset_right = 8.0
+offset_bottom = 31.8095
+mouse_filter = 2
+texture = ExtResource("4_cflyo")
+expand_mode = 1
+
+[node name="Player5" type="TextureRect" parent="PlayersDone"]
+offset_left = 1.0
+offset_top = 32.746
+offset_right = 8.0
+offset_bottom = 39.746
+mouse_filter = 2
+texture = ExtResource("4_cflyo")
+expand_mode = 1
+
+[node name="Player6" type="TextureRect" parent="PlayersDone"]
+offset_left = 1.0
+offset_top = 40.6825
+offset_right = 8.0
+offset_bottom = 47.6825
+mouse_filter = 2
+texture = ExtResource("4_cflyo")
+expand_mode = 1
+
+[node name="Player7" type="TextureRect" parent="PlayersDone"]
+offset_left = 1.0
+offset_top = 48.619
+offset_right = 8.0
+offset_bottom = 55.619
+mouse_filter = 2
+texture = ExtResource("4_cflyo")
+expand_mode = 1
+
+[node name="Player8" type="TextureRect" parent="PlayersDone"]
+offset_left = 1.0
+offset_top = 56.5556
+offset_right = 8.0
+offset_bottom = 63.5556
+mouse_filter = 2
+texture = ExtResource("4_cflyo")
+expand_mode = 1
