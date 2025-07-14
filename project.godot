@@ -1,0 +1,35 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Super Vrshit Blackout Bingo Two 2"
+run/main_scene="res://bingler.tscn"
+config/features=PackedStringArray("4.4", "GL Compatibility")
+run/max_fps=46
+config/icon="uid://bov4rffhqm7h"
+
+[display]
+
+window/size/viewport_width=650
+window/size/viewport_height=550
+window/stretch/mode="canvas_items"
+
+[dotnet]
+
+project/assembly_name="Super Vrshit Blackout Bingo"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+textures/decals/filter=0
+textures/light_projectors/filter=0

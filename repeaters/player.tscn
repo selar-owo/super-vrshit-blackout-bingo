@@ -1,0 +1,142 @@
+[gd_scene load_steps=20 format=3 uid="uid://bwdjdohxpd5gk"]
+
+[ext_resource type="Texture2D" uid="uid://wlkui1q8vnp6" path="res://color.png" id="1_1bxay"]
+[ext_resource type="Script" uid="uid://dadoqi51in5qi" path="res://player.gd" id="1_p0wnf"]
+[ext_resource type="LabelSettings" uid="uid://cuhpq5psc3ql8" path="res://fontchoice.tres" id="2_1bxay"]
+[ext_resource type="PackedScene" uid="uid://c0lpkr8kyv1jt" path="res://repeaters/button_sound_component.tscn" id="4_h7i7s"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h7i7s"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5q0wv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h7i7s"]
+bg_color = Color(0, 0, 0, 0.419)
+expand_margin_left = 1.0
+expand_margin_top = 1.0
+expand_margin_right = 1.0
+expand_margin_bottom = 1.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_drfw0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i7kyo"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bi0ug"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ilkmj"]
+bg_color = Color(1, 1, 1, 0.138)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jlfe6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5q0wv"]
+bg_color = Color(0.23, 0.23, 0.23, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_njdyx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lalnp"]
+
+[sub_resource type="Animation" id="Animation_h7i7s"]
+resource_name = "tog_true"
+length = 0.55
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("NameLabel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.0333333, 0.51),
+"transitions": PackedFloat32Array(0.34151, 1),
+"update": 0,
+"values": [Vector2(14, -4), Vector2(19.7143, -4)]
+}
+
+[sub_resource type="Animation" id="Animation_5q0wv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("NameLabel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(14, -4)]
+}
+
+[sub_resource type="Animation" id="Animation_31v70"]
+resource_name = "tog_true_2"
+length = 0.55
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("NameLabel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.433333),
+"transitions": PackedFloat32Array(0.392292, 0.34151),
+"update": 0,
+"values": [Vector2(19.7143, -4), Vector2(14, -4)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_drfw0"]
+_data = {
+&"RESET": SubResource("Animation_5q0wv"),
+&"tog_true": SubResource("Animation_h7i7s"),
+&"tog_true_2": SubResource("Animation_31v70")
+}
+
+[node name="Player" type="Node2D"]
+modulate = Color(1, 0, 0, 1)
+position = Vector2(0, 4.76837e-06)
+scale = Vector2(1.4, 1.4)
+script = ExtResource("1_p0wnf")
+
+[node name="Button" type="Button" parent="."]
+offset_left = -2.0
+offset_top = -1.0
+offset_right = 91.0
+offset_bottom = 13.0
+focus_mode = 0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_h7i7s")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_5q0wv")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_h7i7s")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_drfw0")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_i7kyo")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_bi0ug")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ilkmj")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_jlfe6")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_5q0wv")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_njdyx")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_lalnp")
+toggle_mode = true
+
+[node name="ButtonSoundComponent" parent="Button" instance=ExtResource("4_h7i7s")]
+
+[node name="ColorSprite" type="Sprite2D" parent="."]
+position = Vector2(6, 6)
+texture = ExtResource("1_1bxay")
+
+[node name="NameLabel" type="Label" parent="."]
+self_modulate = Color(1.2, 1.2, 1.2, 1)
+offset_left = 14.0
+offset_top = -4.0
+offset_right = 64.0
+offset_bottom = 19.0
+text = "flutter"
+label_settings = ExtResource("2_1bxay")
+
+[node name="toggleanim" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_drfw0")
+}

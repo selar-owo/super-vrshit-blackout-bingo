@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b5lro2qd7k1j6"
+path="res://.godot/imported/videoplayback (2) (1).mp3-92bc616bf5b155bd851dcc785d6412af.mp3str"
+
+[deps]
+
+source_file="res://farts/videoplayback (2) (1).mp3"
+dest_files=["res://.godot/imported/videoplayback (2) (1).mp3-92bc616bf5b155bd851dcc785d6412af.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4
