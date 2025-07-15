@@ -1,0 +1,446 @@
+[gd_scene load_steps=28 format=3 uid="uid://baaq25cb3jgsy"]
+
+[ext_resource type="Script" uid="uid://chc44pjr73if1" path="res://scripts/main.gd" id="1_xo7oa"]
+[ext_resource type="Script" uid="uid://yr0mpru81dif" path="res://scripts/SaveStates.gd" id="2_chhg3"]
+[ext_resource type="Shader" uid="uid://bthbja5ox6f5f" path="res://shadersnmore/shitter.gdshader" id="3_1onmn"]
+[ext_resource type="Texture2D" uid="uid://bhnrwss8y7nru" path="res://sprites/logoShit.png" id="4_4rbpd"]
+[ext_resource type="Texture2D" uid="uid://bkleyhserwlp4" path="res://sprites/chart.png" id="5_nuvpk"]
+[ext_resource type="Script" uid="uid://xf1bqx0fdeuf" path="res://scripts/players.gd" id="6_47i7e"]
+[ext_resource type="PackedScene" uid="uid://bwdjdohxpd5gk" path="res://scenes/player.tscn" id="7_x8d28"]
+[ext_resource type="PackedScene" uid="uid://bvmb8oothbh8h" path="res://scenes/entry.tscn" id="8_sf11m"]
+[ext_resource type="Texture2D" uid="uid://cgadmrfrv41wh" path="res://sprites/musicenabled.png" id="9_lpvx3"]
+[ext_resource type="Texture2D" uid="uid://c5uopote8loo7" path="res://sprites/musicdisbled.png" id="10_milh4"]
+[ext_resource type="Script" uid="uid://cw55yxuo17b7q" path="res://scripts/musictoggle.gd" id="11_e87ia"]
+[ext_resource type="PackedScene" uid="uid://c0lpkr8kyv1jt" path="res://scenes/button_sound_component.tscn" id="12_vkrtc"]
+[ext_resource type="Script" uid="uid://coy1wqdohctxq" path="res://scripts/import_and_export.gd" id="13_f28py"]
+[ext_resource type="Texture2D" uid="uid://biendmmqs8k43" path="res://sprites/importsettings.png" id="14_36km1"]
+[ext_resource type="Texture2D" uid="uid://cad7rs5k66wvx" path="res://sprites/settingslocation.png" id="15_e3kio"]
+[ext_resource type="AudioStream" uid="uid://cjtltd7ewpid4" path="res://sounds/wii-startup-sound.mp3" id="16_sdwt8"]
+[ext_resource type="AudioStream" uid="uid://b5lro2qd7k1j6" path="res://sounds/videoplayback (2) (1).mp3" id="17_nf3ty"]
+
+[sub_resource type="Gradient" id="Gradient_maqf1"]
+offsets = PackedFloat32Array(0.00862069, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.859375, 0.859375, 0.859375, 0)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_yjvsj"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_byip8"]
+color_ramp = SubResource("Gradient_maqf1")
+noise = SubResource("FastNoiseLite_yjvsj")
+
+[sub_resource type="Gradient" id="Gradient_el7o5"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_4k8pt"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_dq6rl"]
+color_ramp = SubResource("Gradient_el7o5")
+noise = SubResource("FastNoiseLite_4k8pt")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yjvsj"]
+shader = ExtResource("3_1onmn")
+shader_parameter/color = Color(0, 0, 0, 1)
+shader_parameter/lineWidth = 2.9
+shader_parameter/size = Vector2(20, 20)
+shader_parameter/noise = SubResource("NoiseTexture2D_byip8")
+shader_parameter/noise2 = SubResource("NoiseTexture2D_dq6rl")
+shader_parameter/edge_fade = 1.0
+shader_parameter/wave_speed = 0.9
+
+[sub_resource type="Animation" id="Animation_sveqd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Intro2/Logo:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Intro2:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Intro2/Logo:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(325, 258)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Intro2:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_j6loh"]
+resource_name = "intro"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Intro2/Logo:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0666667, 0.433333, 0.833333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(2, 2, 2, 1), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Intro2:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0666667, 1.23333, 1.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Intro2/Logo:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.13333, 1.9),
+"transitions": PackedFloat32Array(1, 4.59479, 1),
+"update": 0,
+"values": [Vector2(325, 258), Vector2(325, 258), Vector2(325, 474)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Intro2:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wlbx0"]
+_data = {
+&"RESET": SubResource("Animation_sveqd"),
+&"intro": SubResource("Animation_j6loh")
+}
+
+[node name="Bingler" type="Node2D"]
+script = ExtResource("1_xo7oa")
+
+[node name="SaveStates" type="Node" parent="."]
+script = ExtResource("2_chhg3")
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+offset_right = 650.0
+offset_bottom = 550.0
+mouse_filter = 2
+color = Color(1, 0.796078, 0.65098, 1)
+metadata/_edit_lock_ = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_yjvsj")
+offset_right = 650.0
+offset_bottom = 550.0
+mouse_filter = 2
+color = Color(1, 0.796, 0.651, 1)
+metadata/_edit_lock_ = true
+
+[node name="Logo" type="Sprite2D" parent="."]
+position = Vector2(410, 59)
+texture = ExtResource("4_4rbpd")
+
+[node name="Chart" type="Sprite2D" parent="."]
+position = Vector2(409, 310)
+texture = ExtResource("5_nuvpk")
+
+[node name="Players" type="Node2D" parent="."]
+script = ExtResource("6_47i7e")
+
+[node name="Player1" parent="Players" instance=ExtResource("7_x8d28")]
+position = Vector2(12, 116)
+player_color = Color(0.933594, 0.226105, 0.226105, 1)
+
+[node name="Player2" parent="Players" instance=ExtResource("7_x8d28")]
+position = Vector2(12, 140)
+player_name = "tofucurry"
+player_color = Color(0.119781, 0.613281, 0, 1)
+
+[node name="Player3" parent="Players" instance=ExtResource("7_x8d28")]
+position = Vector2(12, 164)
+player_name = "jaykeezy"
+player_color = Color(0.485316, 0.488281, 0.108719, 1)
+
+[node name="Player4" parent="Players" instance=ExtResource("7_x8d28")]
+position = Vector2(12, 188)
+player_name = "nari"
+player_color = Color(0, 0.75, 0.521484, 1)
+
+[node name="Player5" parent="Players" instance=ExtResource("7_x8d28")]
+position = Vector2(12, 212)
+player_name = "kobu"
+player_color = Color(0.130615, 0.439194, 0.835938, 1)
+
+[node name="Player6" parent="Players" instance=ExtResource("7_x8d28")]
+position = Vector2(12, 236)
+player_name = "aaron"
+player_color = Color(0.921875, 0.129639, 0.798088, 1)
+
+[node name="Player7" parent="Players" instance=ExtResource("7_x8d28")]
+position = Vector2(12, 260)
+player_name = "alina"
+player_color = Color(0.640124, 0.304794, 0.917969, 1)
+
+[node name="Player8" parent="Players" instance=ExtResource("7_x8d28")]
+position = Vector2(12, 284)
+player_name = "chills"
+player_color = Color(0.652344, 0.440842, 0.440842, 1)
+
+[node name="Entries" type="Node2D" parent="."]
+
+[node name="Entry1" parent="Entries" instance=ExtResource("8_sf11m")]
+position = Vector2(212, 114)
+
+[node name="Entry2" parent="Entries" instance=ExtResource("8_sf11m")]
+position = Vector2(292, 114)
+entry_title = "invited to
+e family"
+
+[node name="Entry3" parent="Entries" instance=ExtResource("8_sf11m")]
+position = Vector2(371, 114)
+entry_title = "mafia
+larper"
+
+[node name="Entry4" parent="Entries" instance=ExtResource("8_sf11m")]
+position = Vector2(451, 114)
+entry_title = "mpreg/fat
+furry in
+the wild"
+
+[node name="Entry5" parent="Entries" instance=ExtResource("8_sf11m")]
+position = Vector2(530, 114)
+entry_title = "7+ days
+grease
+maxxer"
+
+[node name="Entry6" parent="Entries" instance=ExtResource("8_sf11m")]
+position = Vector2(212, 193)
+entry_title = "regress w
+someone
+(30+ mins)"
+entry_description = "age regress with somebody for at least 30 minutes"
+
+[node name="Entry7" parent="Entries" instance=ExtResource("8_sf11m")]
+position = Vector2(292, 193)
+entry_title = "yucky part
+hangs loose"
+entry_description = "dick, Vajayjay or buh hole hanging out there in public"
+
+[node name="Entry8" parent="Entries" instance=ExtResource("8_sf11m")]
+position = Vector2(371, 193)
+entry_title = "get kobu
+a date"
+entry_description = "get kovu a date (WITH A GIRL !!!!)"
+
+[node name="Entry9" parent="Entries" instance=ExtResource("8_sf11m")]
+position = Vector2(451, 193)
+entry_title = "e couple
+fight"
+
+[node name="Entry10" parent="Entries" instance=ExtResource("8_sf11m")]
+position = Vector2(530, 193)
+entry_title = "get called
+good boy/
+girl"
+
+[node name="Entry11" parent="Entries" instance=ExtResource("8_sf11m")]
+position = Vector2(212, 272)
+entry_title = "get a lap
+dance from
+a femboy"
+
+[node name="Entry12" parent="Entries" instance=ExtResource("8_sf11m")]
+position = Vector2(292, 272)
+entry_title = "get a hook
+up from
+a discord"
+
+[node name="Entry13" parent="Entries" instance=ExtResource("8_sf11m")]
+position = Vector2(371, 272)
+entry_title = "get some
+one to
+vore you"
+
+[node name="Entry14" parent="Entries" instance=ExtResource("8_sf11m")]
+position = Vector2(451, 272)
+entry_title = "rex splode
+gets shot
+in daycare"
+
+[node name="Entry15" parent="Entries" instance=ExtResource("8_sf11m")]
+position = Vector2(530, 272)
+entry_title = "someone
+admits to
+being a
+zoophile"
+
+[node name="Entry16" parent="Entries" instance=ExtResource("8_sf11m")]
+position = Vector2(212, 352)
+entry_title = "demonic
+entity"
+
+[node name="Entry17" parent="Entries" instance=ExtResource("8_sf11m")]
+position = Vector2(292, 352)
+entry_title = "fart/shart
+captured
+on mic"
+
+[node name="Entry18" parent="Entries" instance=ExtResource("8_sf11m")]
+position = Vector2(371, 352)
+entry_title = "make
+somebody
+cum"
+
+[node name="Entry19" parent="Entries" instance=ExtResource("8_sf11m")]
+position = Vector2(451, 352)
+entry_title = "convert
+a troll into
+a brony"
+
+[node name="Entry20" parent="Entries" instance=ExtResource("8_sf11m")]
+position = Vector2(530, 352)
+entry_title = "join a
+polycule"
+
+[node name="Entry21" parent="Entries" instance=ExtResource("8_sf11m")]
+position = Vector2(212, 431)
+entry_title = "stolen
+valor"
+
+[node name="Entry22" parent="Entries" instance=ExtResource("8_sf11m")]
+position = Vector2(292, 431)
+entry_title = "summon
+a new
+alter"
+
+[node name="Entry23" parent="Entries" instance=ExtResource("8_sf11m")]
+position = Vector2(371, 431)
+entry_title = "catch a
+pedo in
+a sting op"
+
+[node name="Entry24" parent="Entries" instance=ExtResource("8_sf11m")]
+position = Vector2(451, 431)
+entry_title = "age regres
+ser fail rp"
+
+[node name="Entry25" parent="Entries" instance=ExtResource("8_sf11m")]
+position = Vector2(530, 431)
+entry_title = "mommy
+getting
+swarmed
+by chuds"
+
+[node name="MusicToggle" type="TextureButton" parent="."]
+offset_top = 504.0
+offset_right = 56.0
+offset_bottom = 550.0
+toggle_mode = true
+texture_normal = ExtResource("9_lpvx3")
+texture_pressed = ExtResource("10_milh4")
+script = ExtResource("11_e87ia")
+metadata/_edit_use_anchors_ = true
+
+[node name="ButtonSoundComponent" parent="MusicToggle" instance=ExtResource("12_vkrtc")]
+
+[node name="ImportAndExport" type="Node2D" parent="."]
+script = ExtResource("13_f28py")
+
+[node name="ImportSettings" type="TextureButton" parent="ImportAndExport"]
+offset_left = 66.0
+offset_top = 511.0
+offset_right = 108.0
+offset_bottom = 544.0
+texture_normal = ExtResource("14_36km1")
+metadata/_edit_use_anchors_ = true
+
+[node name="ButtonSoundComponent" parent="ImportAndExport/ImportSettings" instance=ExtResource("12_vkrtc")]
+
+[node name="SettingsLocation" type="TextureButton" parent="ImportAndExport"]
+offset_left = 114.0
+offset_top = 512.0
+offset_right = 156.0
+offset_bottom = 545.0
+texture_normal = ExtResource("15_e3kio")
+metadata/_edit_use_anchors_ = true
+
+[node name="ButtonSoundComponent" parent="ImportAndExport/SettingsLocation" instance=ExtResource("12_vkrtc")]
+
+[node name="Intro2" type="Node2D" parent="."]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="Intro2"]
+offset_right = 650.0
+offset_bottom = 550.0
+color = Color(1, 0.796078, 0.65098, 1)
+metadata/_edit_lock_ = true
+
+[node name="IntroSOund" type="AudioStreamPlayer" parent="Intro2"]
+stream = ExtResource("16_sdwt8")
+volume_db = -12.356
+autoplay = true
+
+[node name="Music" type="AudioStreamPlayer" parent="Intro2"]
+stream = ExtResource("17_nf3ty")
+volume_db = -12.356
+autoplay = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Intro2"]
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_wlbx0")
+}
+autoplay = "intro"
+
+[node name="Logo" type="Sprite2D" parent="Intro2"]
+position = Vector2(325, 258)
+scale = Vector2(1.22549, 1.22549)
+texture = ExtResource("4_4rbpd")
+
+[node name="FileDialog" type="FileDialog" parent="."]
+title = "Open a File"
+ok_button_text = "Open"
+file_mode = 0
+access = 2
+use_native_dialog = true

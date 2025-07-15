@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Super Vrshit Blackout Bingo Two 2"
-run/main_scene="res://bingler.tscn"
+run/main_scene="res://scenes/bingler.tscn"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 run/max_fps=46
 boot_splash/bg_color=Color(1, 0.796078, 0.65098, 1)

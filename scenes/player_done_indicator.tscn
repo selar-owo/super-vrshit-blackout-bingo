@@ -1,0 +1,127 @@
+[gd_scene load_steps=9 format=3 uid="uid://3geqsdgorewt"]
+
+[ext_resource type="Texture2D" uid="uid://wlkui1q8vnp6" path="res://sprites/color.png" id="1_0cof7"]
+[ext_resource type="Script" uid="uid://clyt03yrdk8tw" path="res://scripts/player_done_indicator.gd" id="1_skqo0"]
+[ext_resource type="FontFile" uid="uid://c6ltgp5hhgwb4" path="res://farts/MucitanSans-Bold.otf" id="2_obrg6"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_skqo0"]
+font = ExtResource("2_obrg6")
+font_size = 15
+
+[sub_resource type="Animation" id="Animation_cq882"]
+resource_name = "appear_true"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(0.217638, 1),
+"update": 0,
+"values": [Vector2(1, 4), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Player:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.186), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_supd6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Player:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ycfd5"]
+resource_name = "appear_false"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1.56917, 0.217638),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 4)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Player:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ycfd5"]
+_data = {
+&"RESET": SubResource("Animation_supd6"),
+&"appear_false": SubResource("Animation_ycfd5"),
+&"appear_true": SubResource("Animation_cq882")
+}
+
+[node name="PlayerDoneIndicator" type="Node2D"]
+script = ExtResource("1_skqo0")
+
+[node name="Player" type="TextureRect" parent="."]
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 8.0
+offset_bottom = 8.0
+mouse_filter = 2
+texture = ExtResource("1_0cof7")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="."]
+visible = false
+offset_left = -18.0
+offset_top = -19.0
+offset_right = 32.0
+offset_bottom = 4.0
+text = "flutter"
+label_settings = SubResource("LabelSettings_skqo0")
+vertical_alignment = 2
+
+[node name="AppearAnimation" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ycfd5")
+}

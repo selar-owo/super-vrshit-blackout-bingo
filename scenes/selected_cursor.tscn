@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://bdaqr7a3s5e8j"]
+
+[ext_resource type="Script" uid="uid://bi7808syng2ae" path="res://scripts/selected_cursor.gd" id="1_ts3jv"]
+[ext_resource type="PackedScene" uid="uid://3geqsdgorewt" path="res://scenes/player_done_indicator.tscn" id="1_wqfm4"]
+
+[node name="SelectedCursor" type="Node2D"]
+scale = Vector2(2, 2)
+script = ExtResource("1_ts3jv")
+
+[node name="Player1" parent="." instance=ExtResource("1_wqfm4")]
+position = Vector2(3, 0)
+
+[node name="Player2" parent="." instance=ExtResource("1_wqfm4")]
+position = Vector2(11, 0)
+
+[node name="Player3" parent="." instance=ExtResource("1_wqfm4")]
+position = Vector2(19, 0)
+
+[node name="Player4" parent="." instance=ExtResource("1_wqfm4")]
+position = Vector2(27, 0)
+
+[node name="Player5" parent="." instance=ExtResource("1_wqfm4")]
+position = Vector2(35, 0)
+
+[node name="Player6" parent="." instance=ExtResource("1_wqfm4")]
+position = Vector2(43, 0)
+
+[node name="Player7" parent="." instance=ExtResource("1_wqfm4")]
+position = Vector2(51, 0)
+
+[node name="Player8" parent="." instance=ExtResource("1_wqfm4")]
+position = Vector2(59, 0)
+
+[node name="Player9" parent="." instance=ExtResource("1_wqfm4")]
+position = Vector2(67, 0)
