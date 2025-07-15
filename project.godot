@@ -12,11 +12,13 @@ config_version=5
 
 config/name="Super Vrshit Blackout Bingo Two 2"
 run/main_scene="res://scenes/bingler.tscn"
+config/use_custom_user_dir=true
+config/custom_user_dir_name="BlackoutBingoBoard"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 run/max_fps=46
 boot_splash/bg_color=Color(1, 0.796078, 0.65098, 1)
 boot_splash/show_image=false
-config/icon="uid://bov4rffhqm7h"
+config/icon="uid://tl1dnj567otq"
 
 [display]
 

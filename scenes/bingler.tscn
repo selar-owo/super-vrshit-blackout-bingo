@@ -1,9 +1,11 @@
-[gd_scene load_steps=28 format=3 uid="uid://baaq25cb3jgsy"]
+[gd_scene load_steps=53 format=3 uid="uid://baaq25cb3jgsy"]
 
 [ext_resource type="Script" uid="uid://chc44pjr73if1" path="res://scripts/main.gd" id="1_xo7oa"]
 [ext_resource type="Script" uid="uid://yr0mpru81dif" path="res://scripts/SaveStates.gd" id="2_chhg3"]
 [ext_resource type="Shader" uid="uid://bthbja5ox6f5f" path="res://shadersnmore/shitter.gdshader" id="3_1onmn"]
+[ext_resource type="AudioStream" uid="uid://dcou72myi6eri" path="res://sounds/editing.mp3" id="3_sf11m"]
 [ext_resource type="Texture2D" uid="uid://bhnrwss8y7nru" path="res://sprites/logoShit.png" id="4_4rbpd"]
+[ext_resource type="Texture2D" uid="uid://blvdcnielhieh" path="res://sprites/logo.png" id="4_chhg3"]
 [ext_resource type="Texture2D" uid="uid://bkleyhserwlp4" path="res://sprites/chart.png" id="5_nuvpk"]
 [ext_resource type="Script" uid="uid://xf1bqx0fdeuf" path="res://scripts/players.gd" id="6_47i7e"]
 [ext_resource type="PackedScene" uid="uid://bwdjdohxpd5gk" path="res://scenes/player.tscn" id="7_x8d28"]
@@ -11,12 +13,21 @@
 [ext_resource type="Texture2D" uid="uid://cgadmrfrv41wh" path="res://sprites/musicenabled.png" id="9_lpvx3"]
 [ext_resource type="Texture2D" uid="uid://c5uopote8loo7" path="res://sprites/musicdisbled.png" id="10_milh4"]
 [ext_resource type="Script" uid="uid://cw55yxuo17b7q" path="res://scripts/musictoggle.gd" id="11_e87ia"]
+[ext_resource type="Texture2D" uid="uid://bisry50c6ypqa" path="res://sprites/musicenabled-hover.png" id="12_47i7e"]
 [ext_resource type="PackedScene" uid="uid://c0lpkr8kyv1jt" path="res://scenes/button_sound_component.tscn" id="12_vkrtc"]
 [ext_resource type="Script" uid="uid://coy1wqdohctxq" path="res://scripts/import_and_export.gd" id="13_f28py"]
 [ext_resource type="Texture2D" uid="uid://biendmmqs8k43" path="res://sprites/importsettings.png" id="14_36km1"]
 [ext_resource type="Texture2D" uid="uid://cad7rs5k66wvx" path="res://sprites/settingslocation.png" id="15_e3kio"]
+[ext_resource type="Texture2D" uid="uid://dgpres3g7ynjk" path="res://sprites/importsettings-hover.png" id="16_nuvpk"]
 [ext_resource type="AudioStream" uid="uid://cjtltd7ewpid4" path="res://sounds/wii-startup-sound.mp3" id="16_sdwt8"]
 [ext_resource type="AudioStream" uid="uid://b5lro2qd7k1j6" path="res://sounds/videoplayback (2) (1).mp3" id="17_nf3ty"]
+[ext_resource type="Texture2D" uid="uid://cdrywlrmyhxyd" path="res://sprites/settingslocation-hover.png" id="18_47i7e"]
+[ext_resource type="Texture2D" uid="uid://w72dycceiu0" path="res://sprites/logo-Sheetthattook10seconds.png" id="18_chhg3"]
+[ext_resource type="Script" uid="uid://5vhlx4ik22kp" path="res://scripts/edit_mode.gd" id="20_milh4"]
+[ext_resource type="Texture2D" uid="uid://4sorjxhccaer" path="res://sprites/editboard.png" id="20_x8d28"]
+[ext_resource type="Texture2D" uid="uid://cp0njdp6x2h7i" path="res://sprites/editboard-hover.png" id="21_sf11m"]
+[ext_resource type="Texture2D" uid="uid://dj56h8l0qxkrx" path="res://sprites/playboard.png" id="23_vkrtc"]
+[ext_resource type="Texture2D" uid="uid://c8segh34lx1vn" path="res://sprites/playboard-hober.png" id="24_f28py"]
 
 [sub_resource type="Gradient" id="Gradient_maqf1"]
 offsets = PackedFloat32Array(0.00862069, 1)
@@ -46,6 +57,127 @@ shader_parameter/noise = SubResource("NoiseTexture2D_byip8")
 shader_parameter/noise2 = SubResource("NoiseTexture2D_dq6rl")
 shader_parameter/edge_fade = 1.0
 shader_parameter/wave_speed = 0.9
+
+[sub_resource type="Animation" id="Animation_lpvx3"]
+resource_name = "edit_enter"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Music:stream")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_sf11m")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../ColorRect2:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 0.796078, 0.65098, 1), Color(0.541306, 0.650925, 0.839844, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Music:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.0333333),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("EditBoard:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-50, 5)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("PlayBoard:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(0.366022, 1),
+"update": 0,
+"values": [Vector2(-50, 5), Vector2(6, 5)]
+}
+
+[sub_resource type="Animation" id="Animation_milh4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Music:stream")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("17_nf3ty")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../ColorRect2:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0.796078, 0.65098, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("EditBoard:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(6, 5)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PlayBoard:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-50, 5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_e87ia"]
+_data = {
+&"RESET": SubResource("Animation_milh4"),
+&"edit_enter": SubResource("Animation_lpvx3")
+}
 
 [sub_resource type="Animation" id="Animation_sveqd"]
 length = 0.001
@@ -96,6 +228,18 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Intro2/AnimatedSprite2D:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_j6loh"]
@@ -149,6 +293,18 @@ tracks/3/keys = {
 "update": 1,
 "values": [true, false]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Intro2/AnimatedSprite2D:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1.13333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wlbx0"]
 _data = {
@@ -156,11 +312,94 @@ _data = {
 &"intro": SubResource("Animation_j6loh")
 }
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_1onmn"]
+atlas = ExtResource("18_chhg3")
+region = Rect2(0, 0, 450, 102)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4rbpd"]
+atlas = ExtResource("18_chhg3")
+region = Rect2(450, 0, 450, 102)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nuvpk"]
+atlas = ExtResource("18_chhg3")
+region = Rect2(900, 0, 450, 102)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_47i7e"]
+atlas = ExtResource("18_chhg3")
+region = Rect2(1350, 0, 450, 102)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x8d28"]
+atlas = ExtResource("18_chhg3")
+region = Rect2(1800, 0, 450, 102)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sf11m"]
+atlas = ExtResource("18_chhg3")
+region = Rect2(2250, 0, 450, 102)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lpvx3"]
+atlas = ExtResource("18_chhg3")
+region = Rect2(2700, 0, 450, 102)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_milh4"]
+atlas = ExtResource("18_chhg3")
+region = Rect2(3150, 0, 450, 102)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e87ia"]
+atlas = ExtResource("18_chhg3")
+region = Rect2(3600, 0, 450, 102)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vkrtc"]
+atlas = ExtResource("18_chhg3")
+region = Rect2(4050, 0, 450, 102)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f28py"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1onmn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4rbpd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nuvpk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_47i7e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x8d28")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sf11m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lpvx3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_milh4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e87ia")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vkrtc")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="Bingler" type="Node2D"]
 script = ExtResource("1_xo7oa")
 
 [node name="SaveStates" type="Node" parent="."]
 script = ExtResource("2_chhg3")
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("17_nf3ty")
+volume_db = -12.356
+autoplay = true
 
 [node name="ColorRect2" type="ColorRect" parent="."]
 offset_right = 650.0
@@ -179,7 +418,7 @@ metadata/_edit_lock_ = true
 
 [node name="Logo" type="Sprite2D" parent="."]
 position = Vector2(410, 59)
-texture = ExtResource("4_4rbpd")
+texture = ExtResource("4_chhg3")
 
 [node name="Chart" type="Sprite2D" parent="."]
 position = Vector2(409, 310)
@@ -227,146 +466,185 @@ position = Vector2(12, 284)
 player_name = "chills"
 player_color = Color(0.652344, 0.440842, 0.440842, 1)
 
+[node name="Player9" parent="Players" instance=ExtResource("7_x8d28")]
+position = Vector2(12, 308)
+player_color = Color(0.933594, 0.226105, 0.226105, 1)
+
+[node name="Player10" parent="Players" instance=ExtResource("7_x8d28")]
+position = Vector2(12, 332)
+player_name = "tofucurry"
+player_color = Color(0.119781, 0.613281, 0, 1)
+
+[node name="Player11" parent="Players" instance=ExtResource("7_x8d28")]
+position = Vector2(12, 356)
+player_name = "jaykeezy"
+player_color = Color(1, 0.726563, 0, 1)
+
+[node name="Player12" parent="Players" instance=ExtResource("7_x8d28")]
+position = Vector2(12, 380)
+player_name = "nari"
+player_color = Color(0, 0.75, 0.521484, 1)
+
+[node name="Player13" parent="Players" instance=ExtResource("7_x8d28")]
+position = Vector2(12, 404)
+player_name = "kobu"
+player_color = Color(0.130615, 0.439194, 0.835938, 1)
+
+[node name="Player14" parent="Players" instance=ExtResource("7_x8d28")]
+position = Vector2(12, 428)
+player_name = "aaron"
+player_color = Color(0.921875, 0.129639, 0.798088, 1)
+
+[node name="Player15" parent="Players" instance=ExtResource("7_x8d28")]
+position = Vector2(12, 452)
+player_name = "alina"
+player_color = Color(0.640124, 0.304794, 0.917969, 1)
+
+[node name="Player16" parent="Players" instance=ExtResource("7_x8d28")]
+position = Vector2(12, 476)
+player_name = "chills"
+player_color = Color(0.652344, 0.440842, 0.440842, 1)
+
 [node name="Entries" type="Node2D" parent="."]
 
 [node name="Entry1" parent="Entries" instance=ExtResource("8_sf11m")]
-position = Vector2(212, 114)
+position = Vector2(211.5, 113)
 
 [node name="Entry2" parent="Entries" instance=ExtResource("8_sf11m")]
-position = Vector2(292, 114)
+position = Vector2(291.5, 113)
 entry_title = "invited to
 e family"
 
 [node name="Entry3" parent="Entries" instance=ExtResource("8_sf11m")]
-position = Vector2(371, 114)
+position = Vector2(371.5, 113)
 entry_title = "mafia
 larper"
 
 [node name="Entry4" parent="Entries" instance=ExtResource("8_sf11m")]
-position = Vector2(451, 114)
+position = Vector2(450.5, 113)
 entry_title = "mpreg/fat
 furry in
 the wild"
 
 [node name="Entry5" parent="Entries" instance=ExtResource("8_sf11m")]
-position = Vector2(530, 114)
+position = Vector2(529.5, 113)
 entry_title = "7+ days
 grease
 maxxer"
 
 [node name="Entry6" parent="Entries" instance=ExtResource("8_sf11m")]
-position = Vector2(212, 193)
+position = Vector2(211.5, 192)
 entry_title = "regress w
 someone
 (30+ mins)"
 entry_description = "age regress with somebody for at least 30 minutes"
 
 [node name="Entry7" parent="Entries" instance=ExtResource("8_sf11m")]
-position = Vector2(292, 193)
+position = Vector2(291.5, 192)
 entry_title = "yucky part
 hangs loose"
 entry_description = "dick, Vajayjay or buh hole hanging out there in public"
 
 [node name="Entry8" parent="Entries" instance=ExtResource("8_sf11m")]
-position = Vector2(371, 193)
+position = Vector2(371.5, 192)
 entry_title = "get kobu
 a date"
 entry_description = "get kovu a date (WITH A GIRL !!!!)"
 
 [node name="Entry9" parent="Entries" instance=ExtResource("8_sf11m")]
-position = Vector2(451, 193)
+position = Vector2(450.5, 192)
 entry_title = "e couple
 fight"
 
 [node name="Entry10" parent="Entries" instance=ExtResource("8_sf11m")]
-position = Vector2(530, 193)
+position = Vector2(529.5, 192)
 entry_title = "get called
 good boy/
 girl"
 
 [node name="Entry11" parent="Entries" instance=ExtResource("8_sf11m")]
-position = Vector2(212, 272)
+position = Vector2(211.5, 271)
 entry_title = "get a lap
 dance from
 a femboy"
 
 [node name="Entry12" parent="Entries" instance=ExtResource("8_sf11m")]
-position = Vector2(292, 272)
+position = Vector2(291.5, 271)
 entry_title = "get a hook
 up from
 a discord"
 
 [node name="Entry13" parent="Entries" instance=ExtResource("8_sf11m")]
-position = Vector2(371, 272)
+position = Vector2(371.5, 271)
 entry_title = "get some
 one to
 vore you"
 
 [node name="Entry14" parent="Entries" instance=ExtResource("8_sf11m")]
-position = Vector2(451, 272)
+position = Vector2(450.5, 271)
 entry_title = "rex splode
 gets shot
 in daycare"
 
 [node name="Entry15" parent="Entries" instance=ExtResource("8_sf11m")]
-position = Vector2(530, 272)
+position = Vector2(529.5, 271)
 entry_title = "someone
 admits to
 being a
 zoophile"
 
 [node name="Entry16" parent="Entries" instance=ExtResource("8_sf11m")]
-position = Vector2(212, 352)
+position = Vector2(211.5, 351)
 entry_title = "demonic
 entity"
 
 [node name="Entry17" parent="Entries" instance=ExtResource("8_sf11m")]
-position = Vector2(292, 352)
+position = Vector2(291.5, 351)
 entry_title = "fart/shart
 captured
 on mic"
 
 [node name="Entry18" parent="Entries" instance=ExtResource("8_sf11m")]
-position = Vector2(371, 352)
+position = Vector2(371.5, 351)
 entry_title = "make
 somebody
 cum"
 
 [node name="Entry19" parent="Entries" instance=ExtResource("8_sf11m")]
-position = Vector2(451, 352)
+position = Vector2(450.5, 351)
 entry_title = "convert
 a troll into
 a brony"
 
 [node name="Entry20" parent="Entries" instance=ExtResource("8_sf11m")]
-position = Vector2(530, 352)
+position = Vector2(529.5, 351)
 entry_title = "join a
 polycule"
 
 [node name="Entry21" parent="Entries" instance=ExtResource("8_sf11m")]
-position = Vector2(212, 431)
+position = Vector2(211.5, 430)
 entry_title = "stolen
 valor"
 
 [node name="Entry22" parent="Entries" instance=ExtResource("8_sf11m")]
-position = Vector2(292, 431)
+position = Vector2(291.5, 430)
 entry_title = "summon
 a new
 alter"
 
 [node name="Entry23" parent="Entries" instance=ExtResource("8_sf11m")]
-position = Vector2(371, 431)
+position = Vector2(371.5, 430)
 entry_title = "catch a
 pedo in
 a sting op"
 
 [node name="Entry24" parent="Entries" instance=ExtResource("8_sf11m")]
-position = Vector2(451, 431)
+position = Vector2(450.5, 430)
 entry_title = "age regres
 ser fail rp"
 
 [node name="Entry25" parent="Entries" instance=ExtResource("8_sf11m")]
-position = Vector2(530, 431)
+position = Vector2(529.5, 430)
 entry_title = "mommy
 getting
 swarmed
@@ -379,6 +657,7 @@ offset_bottom = 550.0
 toggle_mode = true
 texture_normal = ExtResource("9_lpvx3")
 texture_pressed = ExtResource("10_milh4")
+texture_hover = ExtResource("12_47i7e")
 script = ExtResource("11_e87ia")
 metadata/_edit_use_anchors_ = true
 
@@ -388,24 +667,54 @@ metadata/_edit_use_anchors_ = true
 script = ExtResource("13_f28py")
 
 [node name="ImportSettings" type="TextureButton" parent="ImportAndExport"]
-offset_left = 66.0
-offset_top = 511.0
-offset_right = 108.0
-offset_bottom = 544.0
+offset_left = 112.0
+offset_top = 506.0
+offset_right = 154.0
+offset_bottom = 549.0
 texture_normal = ExtResource("14_36km1")
+texture_hover = ExtResource("16_nuvpk")
 metadata/_edit_use_anchors_ = true
 
 [node name="ButtonSoundComponent" parent="ImportAndExport/ImportSettings" instance=ExtResource("12_vkrtc")]
 
 [node name="SettingsLocation" type="TextureButton" parent="ImportAndExport"]
-offset_left = 114.0
-offset_top = 512.0
-offset_right = 156.0
-offset_bottom = 545.0
+offset_left = 64.0
+offset_top = 506.0
+offset_right = 106.0
+offset_bottom = 549.0
 texture_normal = ExtResource("15_e3kio")
+texture_hover = ExtResource("18_47i7e")
 metadata/_edit_use_anchors_ = true
 
 [node name="ButtonSoundComponent" parent="ImportAndExport/SettingsLocation" instance=ExtResource("12_vkrtc")]
+
+[node name="EditMode" type="Node2D" parent="."]
+script = ExtResource("20_milh4")
+
+[node name="EditBoard" type="TextureButton" parent="EditMode"]
+offset_left = 6.0
+offset_top = 5.0
+offset_right = 48.0
+offset_bottom = 48.0
+texture_normal = ExtResource("20_x8d28")
+texture_hover = ExtResource("21_sf11m")
+
+[node name="ButtonSoundComponent" parent="EditMode/EditBoard" instance=ExtResource("12_vkrtc")]
+
+[node name="PlayBoard" type="TextureButton" parent="EditMode"]
+offset_left = -50.0
+offset_top = 5.0
+offset_right = -8.0
+offset_bottom = 48.0
+texture_normal = ExtResource("23_vkrtc")
+texture_hover = ExtResource("24_f28py")
+
+[node name="ButtonSoundComponent" parent="EditMode/PlayBoard" instance=ExtResource("12_vkrtc")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="EditMode"]
+libraries = {
+&"": SubResource("AnimationLibrary_e87ia")
+}
 
 [node name="Intro2" type="Node2D" parent="."]
 visible = false
@@ -421,11 +730,6 @@ stream = ExtResource("16_sdwt8")
 volume_db = -12.356
 autoplay = true
 
-[node name="Music" type="AudioStreamPlayer" parent="Intro2"]
-stream = ExtResource("17_nf3ty")
-volume_db = -12.356
-autoplay = true
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Intro2"]
 root_node = NodePath("../..")
 libraries = {
@@ -437,6 +741,13 @@ autoplay = "intro"
 position = Vector2(325, 258)
 scale = Vector2(1.22549, 1.22549)
 texture = ExtResource("4_4rbpd")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Intro2"]
+position = Vector2(325, 258)
+scale = Vector2(1.225, 1.225)
+sprite_frames = SubResource("SpriteFrames_f28py")
+autoplay = "default"
+speed_scale = 2.0
 
 [node name="FileDialog" type="FileDialog" parent="."]
 title = "Open a File"

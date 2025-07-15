@@ -19,18 +19,20 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a04fb"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ujevm"]
-bg_color = Color(0, 0, 0, 0.096)
+bg_color = Color(0.155884, 0.0923157, 0.195313, 0.096)
 border_width_left = 6
 border_width_top = 6
 border_width_right = 6
 border_width_bottom = 6
-border_color = Color(0, 0, 0, 0.168627)
+border_color = Color(0.028, 0.014, 0.051, 0.234)
 border_blend = true
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_481mi"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wsmof"]
-bg_color = Color(0, 0, 0, 0.389)
+bg_color = Color(0.083168, 0.0704956, 0.171875, 0.389)
+border_color = Color(0, 0, 0, 0.186)
+border_blend = true
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qyje6"]
 
@@ -39,8 +41,9 @@ bg_color = Color(0, 0, 0, 0.389)
 [sub_resource type="LabelSettings" id="LabelSettings_mvhdr"]
 font = ExtResource("1_dqryq")
 font_size = 14
-font_color = Color(0, 0, 0, 1)
+font_color = Color(0.0509804, 0.00784314, 0.0705882, 1)
 outline_size = 4
+outline_color = Color(0.968627, 0.956863, 0.921569, 1)
 
 [sub_resource type="Animation" id="Animation_0tyro"]
 resource_name = "remove_true"
@@ -137,14 +140,13 @@ script = ExtResource("1_mvhdr")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 self_modulate = Color(0.574, 0.285, 0.285, 0.653)
-offset_right = 77.0
-offset_bottom = 77.0
+offset_right = 78.0
+offset_bottom = 78.0
 texture = ExtResource("5_ve5g3")
-metadata/_edit_use_anchors_ = true
 
 [node name="Button" type="Button" parent="."]
-offset_right = 77.0
-offset_bottom = 77.0
+offset_right = 78.0
+offset_bottom = 78.0
 focus_mode = 0
 theme_override_styles/focus = SubResource("StyleBoxEmpty_ufqy0")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_cflyo")
@@ -157,13 +159,12 @@ theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_481mi")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_wsmof")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_qyje6")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_ujevm")
-metadata/_edit_use_anchors_ = true
 
 [node name="ButtonSoundComponent" parent="Button" instance=ExtResource("3_ufqy0")]
 
 [node name="Label" type="Label" parent="."]
-offset_right = 76.0
-offset_bottom = 76.0
+offset_right = 78.0
+offset_bottom = 78.0
 text = "crying/
 crashout 
 live"
@@ -171,9 +172,9 @@ label_settings = SubResource("LabelSettings_mvhdr")
 horizontal_alignment = 1
 vertical_alignment = 1
 clip_text = true
-metadata/_edit_use_anchors_ = true
 
 [node name="PlayersDone" type="Node2D" parent="."]
+position = Vector2(1.19209e-07, 1.19209e-07)
 scale = Vector2(1.05, 1.05)
 
 [node name="Player1" parent="PlayersDone" instance=ExtResource("5_13dps")]
@@ -201,6 +202,33 @@ position = Vector2(0, 55.5555)
 
 [node name="Player9" parent="PlayersDone" instance=ExtResource("5_13dps")]
 position = Vector2(0, 63.492)
+
+[node name="Player10" parent="PlayersDone" instance=ExtResource("5_13dps")]
+position = Vector2(7.61905, 0)
+
+[node name="Player11" parent="PlayersDone" instance=ExtResource("5_13dps")]
+position = Vector2(7.61905, 7.93651)
+
+[node name="Player12" parent="PlayersDone" instance=ExtResource("5_13dps")]
+position = Vector2(7.61905, 15.873)
+
+[node name="Player13" parent="PlayersDone" instance=ExtResource("5_13dps")]
+position = Vector2(7.61905, 23.8095)
+
+[node name="Player14" parent="PlayersDone" instance=ExtResource("5_13dps")]
+position = Vector2(7.61905, 31.746)
+
+[node name="Player15" parent="PlayersDone" instance=ExtResource("5_13dps")]
+position = Vector2(7.61905, 39.6825)
+
+[node name="Player16" parent="PlayersDone" instance=ExtResource("5_13dps")]
+position = Vector2(7.61905, 47.619)
+
+[node name="Player17" parent="PlayersDone" instance=ExtResource("5_13dps")]
+position = Vector2(7.61905, 55.5555)
+
+[node name="Player18" parent="PlayersDone" instance=ExtResource("5_13dps")]
+position = Vector2(7.61905, 63.492)
 
 [node name="RemoveAnim" type="AnimationPlayer" parent="."]
 libraries = {

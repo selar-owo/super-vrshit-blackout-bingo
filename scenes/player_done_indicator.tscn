@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://3geqsdgorewt"]
 
-[ext_resource type="Texture2D" uid="uid://wlkui1q8vnp6" path="res://sprites/color.png" id="1_0cof7"]
 [ext_resource type="Script" uid="uid://clyt03yrdk8tw" path="res://scripts/player_done_indicator.gd" id="1_skqo0"]
+[ext_resource type="Texture2D" uid="uid://ddbivbmaf8q7s" path="res://sprites/colorIndicator.png" id="2_cq882"]
 [ext_resource type="FontFile" uid="uid://c6ltgp5hhgwb4" path="res://farts/MucitanSans-Bold.otf" id="2_obrg6"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_skqo0"]
@@ -104,12 +104,11 @@ script = ExtResource("1_skqo0")
 [node name="Player" type="TextureRect" parent="."]
 offset_left = 1.0
 offset_top = 1.0
-offset_right = 8.0
-offset_bottom = 8.0
+offset_right = 7.0
+offset_bottom = 7.0
 mouse_filter = 2
-texture = ExtResource("1_0cof7")
-expand_mode = 1
-metadata/_edit_use_anchors_ = true
+texture = ExtResource("2_cq882")
+stretch_mode = 2
 
 [node name="Label" type="Label" parent="."]
 visible = false

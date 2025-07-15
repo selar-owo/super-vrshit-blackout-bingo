@@ -3,6 +3,8 @@ class_name Bi12ngler
 
 const VER := 3
 
+var editing := false
+
 var currently_selected := []
 var quotes := [
 	"DO not let Jay know about this he will Block me again",
@@ -22,7 +24,7 @@ func _ready() -> void:
 	version_handler()
 
 func version_handler() -> void:
-	if randi_range(1,10) == 1:
+	if randi_range(1,4) == 1:
 		get_window().title = quotes.pick_random()
 		return
 	get_window().title += str(" U",VER)
@@ -34,7 +36,7 @@ func updated_toggled() -> void:
 	for i in players.get_children():
 		if i.button.is_pressed():
 			currently_selected.append(i.get_index())
-		if currently_selected.size() >= 9:
+		if currently_selected.size() >= 18:
 			for b in players.get_children():
 				if !b.button.is_pressed(): b.button.disabled = true
 			return

@@ -10,6 +10,9 @@ class_name Player
 signal player_toggled(tog:bool,color)
 
 func _ready() -> void:
+	reload_player()
+
+func reload_player() -> void:
 	name_label.text = player_name
 	self.modulate = player_color
 	button.toggled.connect(func(tog)->void:
