@@ -29,6 +29,7 @@ func _ready() -> void:
 func hover_anim(hide) -> void:
 	for i in players_done.get_children():
 		i.hide()
+	if bingler.currently_selected == player_idx_owned and !hide: return
 	if hide:
 		var idx2 := 0
 		for i in self.player_idx_owned:
@@ -44,12 +45,13 @@ func hover_anim(hide) -> void:
 
 func reload_data(data) -> void:
 	print("reloading ",data)
+	var prev_owned := player_idx_owned
 	player_idx_owned = []
 	for i in players_done.get_children():
 		i.hide()
 	label.modulate.a = 1
-	removed.visible = !(data.size() == 0)
-	if data.size() == 0: return
+	removed.visible = !(data.size() == 0 or data == prev_owned)
+	if data.size() == 0 or data == prev_owned: return
 	label.modulate.a = 0.5
 	var idx := 0
 	for i in data:

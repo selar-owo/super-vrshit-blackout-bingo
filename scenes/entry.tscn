@@ -163,14 +163,14 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_ujevm")
 [node name="ButtonSoundComponent" parent="Button" instance=ExtResource("3_ufqy0")]
 
 [node name="Label" type="Label" parent="."]
+offset_top = -16.0
 offset_right = 78.0
-offset_bottom = 78.0
-text = "crying/
-crashout 
-live"
+offset_bottom = 94.0
+text = "crying/crashout  live"
 label_settings = SubResource("LabelSettings_mvhdr")
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 2
 clip_text = true
 
 [node name="PlayersDone" type="Node2D" parent="."]

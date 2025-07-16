@@ -1,0 +1,114 @@
+[gd_scene load_steps=7 format=3 uid="uid://b1avwq0he5c1t"]
+
+[ext_resource type="Script" uid="uid://bnmfbea52m0jy" path="res://scripts/hover_text_component.gd" id="1_0tvok"]
+[ext_resource type="LabelSettings" uid="uid://ba4lhnob05luk" path="res://shadersnmore/fontchoice_blackwhite.tres" id="2_0tvok"]
+
+[sub_resource type="Animation" id="Animation_0tvok"]
+resource_name = "pop_true"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(0.277392, 1),
+"update": 0,
+"values": [Vector2(-105, -5), Vector2(-105, -13)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.216), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_isyh0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-105, -13)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_43kyx"]
+resource_name = "pop_false"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(2.37841, 0.277392),
+"update": 0,
+"values": [Vector2(-105, -13), Vector2(-105, -5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_c3v17"]
+_data = {
+&"RESET": SubResource("Animation_isyh0"),
+&"pop_false": SubResource("Animation_43kyx"),
+&"pop_true": SubResource("Animation_0tvok")
+}
+
+[node name="HoverTextComponent" type="Node2D"]
+script = ExtResource("1_0tvok")
+
+[node name="Label" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = -105.0
+offset_top = -13.0
+offset_right = 106.0
+offset_bottom = 10.0
+text = "text"
+label_settings = ExtResource("2_0tvok")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_c3v17")
+}
+speed_scale = 2.0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://bwdjdohxpd5gk"]
+[gd_scene load_steps=28 format=3 uid="uid://bwdjdohxpd5gk"]
 
 [ext_resource type="Texture2D" uid="uid://wlkui1q8vnp6" path="res://sprites/color.png" id="1_1bxay"]
 [ext_resource type="Script" uid="uid://dadoqi51in5qi" path="res://scripts/player.gd" id="1_p0wnf"]
@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://d4d5bevgmuueq" path="res://sprites/colorSelected.png" id="5_31v70"]
 [ext_resource type="FontFile" uid="uid://c6ltgp5hhgwb4" path="res://farts/MucitanSans-Bold.otf" id="7_y4r1p"]
 [ext_resource type="Texture2D" uid="uid://b5uu310ykfh6p" path="res://sprites/editcolor-hover.png" id="8_smehm"]
-[ext_resource type="Texture2D" uid="uid://dp0hmj8gll2n3" path="res://sprites/editcolor-disabled.png" id="10_d2wvv"]
+[ext_resource type="Shader" uid="uid://mnir6isox13e" path="res://shadersnmore/killyourselves.gdshader" id="9_ur7pv"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h7i7s"]
 
@@ -240,17 +240,13 @@ _data = {
 &"tog_true": SubResource("Animation_h7i7s")
 }
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_y4r1p"]
+shader = ExtResource("9_ur7pv")
+
 [node name="Player" type="Node2D"]
 position = Vector2(0, 4.76837e-06)
 scale = Vector2(1.4, 1.4)
 script = ExtResource("1_p0wnf")
-
-[node name="Faggot" type="ColorRect" parent="."]
-offset_left = -3.0
-offset_top = -2.0
-offset_right = 92.0
-offset_bottom = 14.0
-color = Color(0.0600547, 0.023, 0.176, 0.461)
 
 [node name="Button" type="Button" parent="."]
 offset_left = -2.14286
@@ -300,11 +296,10 @@ text = "name"
 label_settings = ExtResource("2_1bxay")
 
 [node name="EditName" type="LineEdit" parent="."]
-z_index = 1
 offset_left = 10.0
-offset_top = -8.0
-offset_right = 112.0
-offset_bottom = 20.0
+offset_top = -7.71429
+offset_right = 91.0
+offset_bottom = 20.2857
 focus_mode = 1
 theme_override_colors/font_color = Color(0.968627, 0.956863, 0.921569, 1)
 theme_override_fonts/font = ExtResource("7_y4r1p")
@@ -327,6 +322,19 @@ offset_right = 12.4286
 offset_bottom = 13.1429
 texture_normal = ExtResource("4_tuyoq")
 texture_hover = ExtResource("8_smehm")
-texture_disabled = ExtResource("10_d2wvv")
 
 [node name="ButtonSoundComponent" parent="EditColorButton" instance=ExtResource("4_h7i7s")]
+
+[node name="ColorPicker" type="ColorPicker" parent="."]
+visible = false
+z_index = 1
+material = SubResource("ShaderMaterial_y4r1p")
+offset_left = 13.5714
+offset_top = -45.7143
+offset_right = 311.571
+offset_bottom = 218.286
+scale = Vector2(0.4, 0.4)
+sampler_visible = false
+color_modes_visible = false
+sliders_visible = false
+presets_visible = false

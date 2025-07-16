@@ -1,7 +1,7 @@
 extends Node
 class_name SaveStatesHandler
 
-var save_file := "user://svbb_boarddata.svbb"
+var save_file := "user://bingodata.svbb"
 var config := ConfigFile.new()
 
 @onready var entries: Node2D = $"../Entries"
@@ -12,7 +12,7 @@ func _ready() -> void:
 	if !bingo_check:
 		config.set_value("BINGO","bingo_data",{0: [],1: [],2: [],3: [],4: [],5: [],6: [],7: [],8: [],9: [],10: [],11: [],12: [],13: [],14: [],15: [],16: [],17: [],18: [],19: [],20: [],21: [],22: [],23: [],24: []})
 		config.set_value("BINGO","settings_data",{
-			"music_muted": false,
+			"music_muted": true,
 		})
 		config.save(save_file)
 		print("created bingo file")
@@ -53,7 +53,8 @@ func save_bingoboard() -> void:
 
 func save_settings() -> void:
 	var Fuckme = config.get_value("BINGO","settings_data")
-	Fuckme["music_muted"] = music_toggle
+	Fuckme["music_muted"] = music_toggle.is_pressed()
 	
 	config.set_value("BINGO","settings_data",Fuckme)
+	print(config.get_value("BINGO","settings_data"))
 	config.save(save_file)

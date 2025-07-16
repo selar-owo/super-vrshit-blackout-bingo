@@ -4,3 +4,4 @@
 
 [resource]
 font = ExtResource("1_moc3o")
+font_color = Color(0.968627, 0.956863, 0.921569, 1)

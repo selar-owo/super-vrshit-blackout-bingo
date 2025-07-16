@@ -1,13 +1,15 @@
-[gd_scene load_steps=53 format=3 uid="uid://baaq25cb3jgsy"]
+[gd_scene load_steps=66 format=3 uid="uid://baaq25cb3jgsy"]
 
 [ext_resource type="Script" uid="uid://chc44pjr73if1" path="res://scripts/main.gd" id="1_xo7oa"]
 [ext_resource type="Script" uid="uid://yr0mpru81dif" path="res://scripts/SaveStates.gd" id="2_chhg3"]
 [ext_resource type="Shader" uid="uid://bthbja5ox6f5f" path="res://shadersnmore/shitter.gdshader" id="3_1onmn"]
-[ext_resource type="AudioStream" uid="uid://dcou72myi6eri" path="res://sounds/editing.mp3" id="3_sf11m"]
 [ext_resource type="Texture2D" uid="uid://bhnrwss8y7nru" path="res://sprites/logoShit.png" id="4_4rbpd"]
 [ext_resource type="Texture2D" uid="uid://blvdcnielhieh" path="res://sprites/logo.png" id="4_chhg3"]
+[ext_resource type="Texture2D" uid="uid://cu2vqqjx1kisy" path="res://sprites/Gradient.png" id="4_f28py"]
 [ext_resource type="Texture2D" uid="uid://bkleyhserwlp4" path="res://sprites/chart.png" id="5_nuvpk"]
 [ext_resource type="Script" uid="uid://xf1bqx0fdeuf" path="res://scripts/players.gd" id="6_47i7e"]
+[ext_resource type="Shader" uid="uid://blldy8mn5itgd" path="res://shadersnmore/waber.gdshader" id="6_e3kio"]
+[ext_resource type="Texture2D" uid="uid://rs3jlhdyb4dd" path="res://sprites/logoEditMode.png" id="7_36km1"]
 [ext_resource type="PackedScene" uid="uid://bwdjdohxpd5gk" path="res://scenes/player.tscn" id="7_x8d28"]
 [ext_resource type="PackedScene" uid="uid://bvmb8oothbh8h" path="res://scenes/entry.tscn" id="8_sf11m"]
 [ext_resource type="Texture2D" uid="uid://cgadmrfrv41wh" path="res://sprites/musicenabled.png" id="9_lpvx3"]
@@ -26,8 +28,12 @@
 [ext_resource type="Script" uid="uid://5vhlx4ik22kp" path="res://scripts/edit_mode.gd" id="20_milh4"]
 [ext_resource type="Texture2D" uid="uid://4sorjxhccaer" path="res://sprites/editboard.png" id="20_x8d28"]
 [ext_resource type="Texture2D" uid="uid://cp0njdp6x2h7i" path="res://sprites/editboard-hover.png" id="21_sf11m"]
+[ext_resource type="LabelSettings" uid="uid://ba4lhnob05luk" path="res://shadersnmore/fontchoice_blackwhite.tres" id="22_nf3ty"]
 [ext_resource type="Texture2D" uid="uid://dj56h8l0qxkrx" path="res://sprites/playboard.png" id="23_vkrtc"]
 [ext_resource type="Texture2D" uid="uid://c8segh34lx1vn" path="res://sprites/playboard-hober.png" id="24_f28py"]
+[ext_resource type="PackedScene" uid="uid://b1avwq0he5c1t" path="res://scenes/hover_text_component.tscn" id="25_de2m6"]
+[ext_resource type="LabelSettings" uid="uid://lloo0tgfmrru" path="res://shadersnmore/fontchoice_whiteblack.tres" id="30_de2m6"]
+[ext_resource type="Shader" uid="uid://mnir6isox13e" path="res://shadersnmore/killyourselves.gdshader" id="34_de2m6"]
 
 [sub_resource type="Gradient" id="Gradient_maqf1"]
 offsets = PackedFloat32Array(0.00862069, 1)
@@ -58,68 +64,130 @@ shader_parameter/noise2 = SubResource("NoiseTexture2D_dq6rl")
 shader_parameter/edge_fade = 1.0
 shader_parameter/wave_speed = 0.9
 
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_sdwt8"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_nf3ty"]
+noise = SubResource("FastNoiseLite_sdwt8")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_de2m6"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_2bowk"]
+noise = SubResource("FastNoiseLite_de2m6")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2ibqq"]
+shader = ExtResource("6_e3kio")
+shader_parameter/waterNoise = SubResource("NoiseTexture2D_2bowk")
+shader_parameter/waterDistortionNoise = SubResource("NoiseTexture2D_nf3ty")
+shader_parameter/waterColor = Color(0.117, 0.27, 0.58, 1)
+shader_parameter/colorCorection = 0.35
+shader_parameter/distortionForce = 0.064
+shader_parameter/WDBrightness = 1.5
+shader_parameter/WDFreq = 0.6
+shader_parameter/WDSize = 0.9
+shader_parameter/WDSpeed = 4.0
+shader_parameter/tiling = Vector2(1, 1)
+shader_parameter/offSetSpeed = Vector2(0.1, 0.1)
+shader_parameter/backGroundDirX = 0.041
+shader_parameter/backGroundDirY = 0.041
+
 [sub_resource type="Animation" id="Animation_lpvx3"]
 resource_name = "edit_enter"
-length = 0.4
+length = 1.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("../Music:stream")
+tracks/0/path = NodePath("../ColorRect2:color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("3_sf11m")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../ColorRect2:color")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.4),
+"times": PackedFloat32Array(0, 0.733333),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 0.796078, 0.65098, 1), Color(0.541306, 0.650925, 0.839844, 1)]
 }
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("../Music:playing")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0.0333333),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("EditBoard:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("EditBoard:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(-50, 5)]
 }
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("PlayBoard:position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PlayBoard:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.4),
 "transitions": PackedFloat32Array(0.366022, 1),
 "update": 0,
 "values": [Vector2(-50, 5), Vector2(6, 5)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../ColorRect2/TextureRect:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../ColorRect2/TextureRect:size")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(0.183011, 1),
+"update": 0,
+"values": [Vector2(650, 77), Vector2(650, 550)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../Logo/EditMode:self_modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../ColorRect3:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../ColorRect:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_milh4"]
@@ -127,56 +195,205 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("../Music:stream")
+tracks/0/path = NodePath("../ColorRect2:color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("17_nf3ty")]
+"update": 0,
+"values": [Color(1, 0.796078, 0.65098, 1)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../ColorRect2:color")
+tracks/1/path = NodePath("EditBoard:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 0.796078, 0.65098, 1)]
+"values": [Vector2(6, 5)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("EditBoard:position")
+tracks/2/path = NodePath("PlayBoard:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(6, 5)]
+"values": [Vector2(-50, 5)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("PlayBoard:position")
+tracks/3/path = NodePath("../ColorRect2/TextureRect:modulate")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../ColorRect2/TextureRect:size")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(650, 550)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../Logo/EditMode:self_modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../ColorRect3:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../ColorRect:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_f28py"]
+resource_name = "edit_exit"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../ColorRect2:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.541306, 0.650925, 0.839844, 1), Color(1, 0.796078, 0.65098, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("EditBoard:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(0.366022, 1),
+"update": 0,
+"values": [Vector2(-50, 5), Vector2(6, 5)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PlayBoard:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(0.366022),
+"update": 0,
 "values": [Vector2(-50, 5)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../ColorRect2/TextureRect:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../ColorRect2/TextureRect:size")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(2.37842, 0.183011),
+"update": 0,
+"values": [Vector2(650, 550), Vector2(650, 77)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../Logo/EditMode:self_modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../ColorRect3:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../ColorRect:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_e87ia"]
 _data = {
 &"RESET": SubResource("Animation_milh4"),
-&"edit_enter": SubResource("Animation_lpvx3")
+&"edit_enter": SubResource("Animation_lpvx3"),
+&"edit_exit": SubResource("Animation_f28py")
 }
 
 [sub_resource type="Animation" id="Animation_sveqd"]
@@ -390,7 +607,11 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2bowk"]
+shader = ExtResource("34_de2m6")
+
 [node name="Bingler" type="Node2D"]
+position = Vector2(-1, 0)
 script = ExtResource("1_xo7oa")
 
 [node name="SaveStates" type="Node" parent="."]
@@ -408,6 +629,18 @@ mouse_filter = 2
 color = Color(1, 0.796078, 0.65098, 1)
 metadata/_edit_lock_ = true
 
+[node name="TextureRect" type="TextureRect" parent="ColorRect2"]
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(0.0706177, 0, 0.695313, 0.604)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("4_f28py")
+
 [node name="ColorRect" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_yjvsj")
 offset_right = 650.0
@@ -416,9 +649,30 @@ mouse_filter = 2
 color = Color(1, 0.796, 0.651, 1)
 metadata/_edit_lock_ = true
 
+[node name="ColorRect3" type="ColorRect" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_2ibqq")
+offset_right = 650.0
+offset_bottom = 550.0
+mouse_filter = 2
+color = Color(1, 0.796, 0.651, 0)
+metadata/_edit_lock_ = true
+
+[node name="ColorRect2" type="ColorRect" parent="ColorRect3"]
+layout_mode = 0
+offset_right = 650.0
+offset_bottom = 550.0
+mouse_filter = 2
+color = Color(0, 0, 0, 0.425)
+metadata/_edit_lock_ = true
+
 [node name="Logo" type="Sprite2D" parent="."]
 position = Vector2(410, 59)
 texture = ExtResource("4_chhg3")
+
+[node name="EditMode" type="Sprite2D" parent="Logo"]
+self_modulate = Color(1, 1, 1, 0)
+texture = ExtResource("7_36km1")
 
 [node name="Chart" type="Sprite2D" parent="."]
 position = Vector2(409, 310)
@@ -663,6 +917,11 @@ metadata/_edit_use_anchors_ = true
 
 [node name="ButtonSoundComponent" parent="MusicToggle" instance=ExtResource("12_vkrtc")]
 
+[node name="HoverTextComponent2" parent="MusicToggle" instance=ExtResource("25_de2m6")]
+position = Vector2(31, -8)
+label_text = "music"
+label_configfuckingthingidontknow = ExtResource("22_nf3ty")
+
 [node name="ImportAndExport" type="Node2D" parent="."]
 script = ExtResource("13_f28py")
 
@@ -677,6 +936,12 @@ metadata/_edit_use_anchors_ = true
 
 [node name="ButtonSoundComponent" parent="ImportAndExport/ImportSettings" instance=ExtResource("12_vkrtc")]
 
+[node name="HoverTextComponent2" parent="ImportAndExport/ImportSettings" instance=ExtResource("25_de2m6")]
+position = Vector2(18, -8)
+hide_label_on_click = true
+label_text = "import bingo (svbb)"
+label_configfuckingthingidontknow = ExtResource("22_nf3ty")
+
 [node name="SettingsLocation" type="TextureButton" parent="ImportAndExport"]
 offset_left = 64.0
 offset_top = 506.0
@@ -687,6 +952,12 @@ texture_hover = ExtResource("18_47i7e")
 metadata/_edit_use_anchors_ = true
 
 [node name="ButtonSoundComponent" parent="ImportAndExport/SettingsLocation" instance=ExtResource("12_vkrtc")]
+
+[node name="HoverTextComponent2" parent="ImportAndExport/SettingsLocation" instance=ExtResource("25_de2m6")]
+position = Vector2(18, -8)
+hide_label_on_click = true
+label_text = "bingo data location"
+label_configfuckingthingidontknow = ExtResource("22_nf3ty")
 
 [node name="EditMode" type="Node2D" parent="."]
 script = ExtResource("20_milh4")
@@ -701,6 +972,12 @@ texture_hover = ExtResource("21_sf11m")
 
 [node name="ButtonSoundComponent" parent="EditMode/EditBoard" instance=ExtResource("12_vkrtc")]
 
+[node name="HoverTextComponent2" parent="EditMode/EditBoard" instance=ExtResource("25_de2m6")]
+position = Vector2(65, 20)
+hide_label_on_click = true
+label_text = "editor"
+label_configfuckingthingidontknow = ExtResource("22_nf3ty")
+
 [node name="PlayBoard" type="TextureButton" parent="EditMode"]
 offset_left = -50.0
 offset_top = 5.0
@@ -710,6 +987,12 @@ texture_normal = ExtResource("23_vkrtc")
 texture_hover = ExtResource("24_f28py")
 
 [node name="ButtonSoundComponent" parent="EditMode/PlayBoard" instance=ExtResource("12_vkrtc")]
+
+[node name="HoverTextComponent2" parent="EditMode/PlayBoard" instance=ExtResource("25_de2m6")]
+position = Vector2(65, 20)
+hide_label_on_click = true
+label_text = "play"
+label_configfuckingthingidontknow = ExtResource("30_de2m6")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="EditMode"]
 libraries = {
@@ -755,3 +1038,32 @@ ok_button_text = "Open"
 file_mode = 0
 access = 2
 use_native_dialog = true
+
+[node name="ColorpickeThingt" type="Node2D" parent="."]
+visible = false
+z_index = 5
+position = Vector2(-0.2857, 116)
+scale = Vector2(1.4, 1.4)
+
+[node name="Panel" type="Panel" parent="ColorpickeThingt"]
+z_index = 1
+offset_left = 22.5714
+offset_top = -60.0
+offset_right = 145.571
+offset_bottom = 63.0
+
+[node name="ColorPicker" type="ColorPicker" parent="ColorpickeThingt"]
+z_index = 1
+material = SubResource("ShaderMaterial_2bowk")
+offset_left = 24.1428
+offset_top = -56.7143
+offset_right = 322.143
+offset_bottom = 242.286
+scale = Vector2(0.4, 0.4)
+mouse_filter = 0
+picker_shape = 1
+can_add_swatches = false
+sampler_visible = false
+color_modes_visible = false
+sliders_visible = false
+presets_visible = false

@@ -6,6 +6,6 @@ extends Node
 
 func _ready() -> void:
 	button_node.connect("mouse_entered",func()->void:
-		if !get_window().has_focus(): return
+		if !get_window().has_focus() or button_node.disabled: return
 		hover.play())
 	button_node.connect("button_down",func()->void:click.play())

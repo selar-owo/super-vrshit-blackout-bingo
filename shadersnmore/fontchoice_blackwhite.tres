@@ -1,0 +1,9 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://ba4lhnob05luk"]
+
+[ext_resource type="FontFile" uid="uid://c6ltgp5hhgwb4" path="res://farts/MucitanSans-Bold.otf" id="1_562pw"]
+
+[resource]
+font = ExtResource("1_562pw")
+font_color = Color(0.0509804, 0.00784314, 0.0705882, 1)
+outline_size = 4
+outline_color = Color(0.968627, 0.956863, 0.921569, 1)

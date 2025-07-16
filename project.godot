@@ -19,6 +19,10 @@ run/max_fps=46
 boot_splash/bg_color=Color(1, 0.796078, 0.65098, 1)
 boot_splash/show_image=false
 config/icon="uid://tl1dnj567otq"
+run/custom_user_dir_name="BlackoutBingoBoard"
+run/use_custom_user_dir=true
+run/icon="uid://tl1dnj567otq"
+run/stretch/mode="canvas_items"
 
 [display]
 
