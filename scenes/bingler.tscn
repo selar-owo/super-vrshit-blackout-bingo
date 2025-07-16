@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=3 uid="uid://baaq25cb3jgsy"]
+[gd_scene load_steps=67 format=3 uid="uid://baaq25cb3jgsy"]
 
 [ext_resource type="Script" uid="uid://chc44pjr73if1" path="res://scripts/main.gd" id="1_xo7oa"]
 [ext_resource type="Script" uid="uid://yr0mpru81dif" path="res://scripts/SaveStates.gd" id="2_chhg3"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://cgadmrfrv41wh" path="res://sprites/musicenabled.png" id="9_lpvx3"]
 [ext_resource type="Texture2D" uid="uid://c5uopote8loo7" path="res://sprites/musicdisbled.png" id="10_milh4"]
 [ext_resource type="Script" uid="uid://cw55yxuo17b7q" path="res://scripts/musictoggle.gd" id="11_e87ia"]
+[ext_resource type="Script" uid="uid://bstohtnj7lixc" path="res://scripts/entries.gd" id="12_2bowk"]
 [ext_resource type="Texture2D" uid="uid://bisry50c6ypqa" path="res://sprites/musicenabled-hover.png" id="12_47i7e"]
 [ext_resource type="PackedScene" uid="uid://c0lpkr8kyv1jt" path="res://scenes/button_sound_component.tscn" id="12_vkrtc"]
 [ext_resource type="Script" uid="uid://coy1wqdohctxq" path="res://scripts/import_and_export.gd" id="13_f28py"]
@@ -759,6 +760,7 @@ player_name = "chills"
 player_color = Color(0.652344, 0.440842, 0.440842, 1)
 
 [node name="Entries" type="Node2D" parent="."]
+script = ExtResource("12_2bowk")
 
 [node name="Entry1" parent="Entries" instance=ExtResource("8_sf11m")]
 position = Vector2(211.5, 113)

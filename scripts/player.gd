@@ -21,6 +21,7 @@ signal player_toggled(tog:bool,color)
 @onready var add_player: Button = $AddPlayer
 @onready var delete_player: TextureButton = $DeletePlayer
 @onready var entries: Node2D = $"../../Entries"
+@onready var save_states: SaveStatesHandler = $"../../SaveStates"
 
 func _ready() -> void:
 	reload_player()
@@ -46,7 +47,8 @@ func _ready() -> void:
 		if edit_color_button.disabled: return
 		bingler.all_players[self.get_index()][1] = clr
 		player_color = clr
-		edit_color_button.modulate = player_color
+		self.modulate = player_color
+		entries.reload_all_entries()
 		)
 	edit_name.text_changed.connect(func(txt)->void:
 		var myfaaart := edit_name.caret_column
@@ -57,16 +59,21 @@ func _ready() -> void:
 		edit_name.caret_column = myfaaart
 		)
 	add_player.button_down.connect(func()->void:
+		var new_plr_idx:int = bingler.all_players.size()
 		bingler.all_players.append(["player",Color(0.9,0.8,0.9)])
+		players.get_child(new_plr_idx).edit_color_button.show()
 		players.reload_all_players()
 		)
 	delete_player.button_down.connect(func()->void:
+		players.get_child(bingler.all_players.size()).hide()
 		var maindicks := self.get_index()
 		for i:Entry in entries.get_children():
 			i.player_idx_owned = tfinamethis(i)
 		bingler.all_players.remove_at(maindicks)
 		print("DLT: Attempted to delete player ",bingler.all_players)
 		players.reload_all_players()
+		entries.reload_all_entries()
+		#save_states.save_n_download()
 		)
 
 func tfinamethis(i) -> Array:
@@ -84,7 +91,6 @@ func tfinamethis(i) -> Array:
 func reload_player() -> void:
 	name_label.text = player_name
 	self.modulate = player_color
-	edit_color_button.modulate = player_color
 	add_player.visible = (name_label.text == "ADD PLR")
 	delete_player.visible = (bingler.editing and name_label.text != "ADD PLR")
 	edit_name.editable = !(name_label.text == "ADD PLR")
@@ -101,9 +107,7 @@ func update_player_edit_state(state) -> void:
 	name_label.visible = !state
 	match state:
 		true:
-			self.modulate = Color(1,1,1)
 			button.set_pressed(false)
 			edit_name.text = player_name
-			color_picker.color = player_color
 	if (name_label.text == "ADD PLR"): return
 	edit_color_button.visible = state

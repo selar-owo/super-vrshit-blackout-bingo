@@ -43,15 +43,15 @@ func hover_anim(hide) -> void:
 		players_done.get_child(idx).show()
 		idx += 1
 
-func reload_data(data) -> void:
+func reload_data(data,refreshing=false) -> void:
 	print("reloading ",data)
 	var prev_owned := player_idx_owned
 	player_idx_owned = []
 	for i in players_done.get_children():
 		i.hide()
 	label.modulate.a = 1
-	removed.visible = !(data.size() == 0 or data == prev_owned)
-	if data.size() == 0 or data == prev_owned: return
+	removed.visible = !(data.size() == 0 or (data == prev_owned and !refreshing))
+	if data.size() == 0 or (data == prev_owned and !refreshing): return
 	label.modulate.a = 0.5
 	var idx := 0
 	for i in data:
