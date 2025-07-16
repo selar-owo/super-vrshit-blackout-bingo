@@ -38,7 +38,7 @@ border_blend = true
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ujevm"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_mvhdr"]
+[sub_resource type="LabelSettings" id="LabelSettings_0tyro"]
 font = ExtResource("1_dqryq")
 font_size = 14
 font_color = Color(0.0509804, 0.00784314, 0.0705882, 1)
@@ -163,11 +163,11 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_ujevm")
 [node name="ButtonSoundComponent" parent="Button" instance=ExtResource("3_ufqy0")]
 
 [node name="Label" type="Label" parent="."]
-offset_top = -16.0
+offset_top = -18.0
 offset_right = 78.0
-offset_bottom = 94.0
+offset_bottom = 93.0
 text = "crying/crashout  live"
-label_settings = SubResource("LabelSettings_mvhdr")
+label_settings = SubResource("LabelSettings_0tyro")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2

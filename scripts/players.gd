@@ -4,11 +4,11 @@ extends Node2D
 @onready var edit_mode: Node2D = $"../EditMode"
 
 func _ready() -> void:
-	for i in self.get_children():
-		i.hide()
 	reload_all_players()
 
 func reload_all_players() -> void:
+	for i in self.get_children():
+		i.hide()
 	print("Editing Test c")
 	var idx := 0
 	for i in bingler.all_players:

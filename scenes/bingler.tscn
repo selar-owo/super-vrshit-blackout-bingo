@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=3 uid="uid://baaq25cb3jgsy"]
+[gd_scene load_steps=70 format=3 uid="uid://baaq25cb3jgsy"]
 
 [ext_resource type="Script" uid="uid://chc44pjr73if1" path="res://scripts/main.gd" id="1_xo7oa"]
 [ext_resource type="Script" uid="uid://yr0mpru81dif" path="res://scripts/SaveStates.gd" id="2_chhg3"]
@@ -35,6 +35,8 @@
 [ext_resource type="PackedScene" uid="uid://b1avwq0he5c1t" path="res://scenes/hover_text_component.tscn" id="25_de2m6"]
 [ext_resource type="LabelSettings" uid="uid://lloo0tgfmrru" path="res://shadersnmore/fontchoice_whiteblack.tres" id="30_de2m6"]
 [ext_resource type="Shader" uid="uid://mnir6isox13e" path="res://shadersnmore/killyourselves.gdshader" id="34_de2m6"]
+[ext_resource type="FontFile" uid="uid://c6ltgp5hhgwb4" path="res://farts/MucitanSans-Bold.otf" id="36_2ibqq"]
+[ext_resource type="LabelSettings" uid="uid://cuhpq5psc3ql8" path="res://shadersnmore/fontchoice.tres" id="37_k1y0i"]
 
 [sub_resource type="Gradient" id="Gradient_maqf1"]
 offsets = PackedFloat32Array(0.00862069, 1)
@@ -96,7 +98,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("../ColorRect2:color")
+tracks/0/path = NodePath("../BG:color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -132,7 +134,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("../ColorRect2/TextureRect:modulate")
+tracks/3/path = NodePath("../BG/BGGradient:modulate")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -144,7 +146,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("../ColorRect2/TextureRect:size")
+tracks/4/path = NodePath("../BG/BGGradient:size")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -168,7 +170,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("../ColorRect3:visible")
+tracks/6/path = NodePath("../EditingBGWater:visible")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -180,7 +182,7 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("../ColorRect:visible")
+tracks/7/path = NodePath("../BGGrid:visible")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
@@ -196,7 +198,7 @@ length = 1.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("../ColorRect2:color")
+tracks/0/path = NodePath("../BG:color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -232,7 +234,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("../ColorRect2/TextureRect:modulate")
+tracks/3/path = NodePath("../BG/BGGradient:modulate")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -244,7 +246,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("../ColorRect2/TextureRect:size")
+tracks/4/path = NodePath("../BG/BGGradient:size")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -268,7 +270,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("../ColorRect3:visible")
+tracks/6/path = NodePath("../EditingBGWater:visible")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -280,7 +282,7 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("../ColorRect:visible")
+tracks/7/path = NodePath("../BGGrid:visible")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
@@ -296,7 +298,7 @@ length = 1.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("../ColorRect2:color")
+tracks/0/path = NodePath("../BG:color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -332,7 +334,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("../ColorRect2/TextureRect:modulate")
+tracks/3/path = NodePath("../BG/BGGradient:modulate")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -344,7 +346,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("../ColorRect2/TextureRect:size")
+tracks/4/path = NodePath("../BG/BGGradient:size")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -368,7 +370,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("../ColorRect3:visible")
+tracks/6/path = NodePath("../EditingBGWater:visible")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -380,7 +382,7 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("../ColorRect:visible")
+tracks/7/path = NodePath("../BGGrid:visible")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
@@ -611,8 +613,11 @@ animations = [{
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2bowk"]
 shader = ExtResource("34_de2m6")
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2ibqq"]
+
 [node name="Bingler" type="Node2D"]
 script = ExtResource("1_xo7oa")
+metadata/_edit_lock_ = true
 
 [node name="SaveStates" type="Node" parent="."]
 script = ExtResource("2_chhg3")
@@ -622,14 +627,14 @@ stream = ExtResource("17_nf3ty")
 volume_db = -12.356
 autoplay = true
 
-[node name="ColorRect2" type="ColorRect" parent="."]
+[node name="BG" type="ColorRect" parent="."]
 offset_right = 650.0
 offset_bottom = 550.0
 mouse_filter = 2
 color = Color(1, 0.796078, 0.65098, 1)
 metadata/_edit_lock_ = true
 
-[node name="TextureRect" type="TextureRect" parent="ColorRect2"]
+[node name="BGGradient" type="TextureRect" parent="BG"]
 modulate = Color(1, 1, 1, 0)
 self_modulate = Color(0.0706177, 0, 0.695313, 0.604)
 layout_mode = 1
@@ -641,7 +646,7 @@ grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("4_f28py")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="BGGrid" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_yjvsj")
 offset_right = 650.0
 offset_bottom = 550.0
@@ -649,7 +654,7 @@ mouse_filter = 2
 color = Color(1, 0.796, 0.651, 1)
 metadata/_edit_lock_ = true
 
-[node name="ColorRect3" type="ColorRect" parent="."]
+[node name="EditingBGWater" type="ColorRect" parent="."]
 visible = false
 material = SubResource("ShaderMaterial_2ibqq")
 offset_right = 650.0
@@ -658,7 +663,7 @@ mouse_filter = 2
 color = Color(1, 0.796, 0.651, 0)
 metadata/_edit_lock_ = true
 
-[node name="ColorRect2" type="ColorRect" parent="ColorRect3"]
+[node name="EditingBGDarkening" type="ColorRect" parent="EditingBGWater"]
 layout_mode = 0
 offset_right = 650.0
 offset_bottom = 550.0
@@ -1068,3 +1073,27 @@ sampler_visible = false
 color_modes_visible = false
 sliders_visible = false
 presets_visible = false
+
+[node name="EditEntry" type="Node2D" parent="."]
+visible = false
+z_index = 4
+position = Vector2(211, 113)
+
+[node name="RenameEntry" type="LineEdit" parent="EditEntry"]
+offset_left = -202.0
+offset_top = 27.0
+offset_right = 125.0
+offset_bottom = 55.0
+scale = Vector2(0.6, 0.6)
+theme_override_fonts/font = ExtResource("36_2ibqq")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_2ibqq")
+text = "crying/crashout live"
+
+[node name="Label" type="Label" parent="EditEntry"]
+offset_left = -203.0
+offset_top = 12.0
+offset_right = 111.0
+offset_bottom = 35.0
+scale = Vector2(0.6, 0.6)
+text = "rename( i dont feel like making it better)"
+label_settings = ExtResource("37_k1y0i")

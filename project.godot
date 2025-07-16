@@ -34,6 +34,10 @@ window/stretch/mode="canvas_items"
 
 project/assembly_name="Super Vrshit Blackout Bingo"
 
+[gui]
+
+theme/default_font_subpixel_positioning=0
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0

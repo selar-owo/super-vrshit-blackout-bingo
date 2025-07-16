@@ -33,6 +33,34 @@ var quotes := [
 	["alina",Color(0.64, 0.305, 0.918)],
 	["chills",Color(0.652, 0.441, 0.441)],
 ]
+@export var all_entries := {
+	0: "crying / crashout live",
+	1: "invited to e family",
+	2: "mafia larper",
+	3: "mpreg/fat furry in the wild",
+	4: "7+ days grease maxxer",
+	5: "regress w someone (30+ mins)",
+	6: "yucky part hangs loose",
+	7: "get kobu a date",
+	8: "e couple fight",
+	9: "get called good boy/girl",
+	10: "get a lap dance from a femboy",
+	11: "get a hook up from a discord",
+	12: "get someone to vore you",
+	13: "rex splode gets shot in daycare",
+	14: "someone admits to being a zoophile",
+	15: "demonic entity",
+	16: "fart/shart captured on mic",
+	17: "make somebody cum",
+	18: "convert a troll into a brony",
+	19: "join a polycule",
+	20: "stolen valor",
+	21: "summon a new alter",
+	22: "catch a pedo in a sting op",
+	23: "age regres ser fail rp",
+	24: "mommy getting swarmed by chuds",
+	}
+
 @export_category("BOARD DATA")
 @export var board_data := {
 0: [],
