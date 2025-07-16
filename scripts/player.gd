@@ -20,6 +20,7 @@ signal player_toggled(tog:bool,color)
 @onready var faggot: ColorRect = $Faggot
 @onready var add_player: Button = $AddPlayer
 @onready var delete_player: TextureButton = $DeletePlayer
+@onready var entries: Node2D = $"../../Entries"
 
 func _ready() -> void:
 	reload_player()
@@ -57,10 +58,28 @@ func _ready() -> void:
 		)
 	add_player.button_down.connect(func()->void:
 		bingler.all_players.append(["player",Color(0.9,0.8,0.9)])
-		await get_tree().process_frame
-		players.reload_all_players()
 		players.reload_all_players()
 		)
+	delete_player.button_down.connect(func()->void:
+		var maindicks := self.get_index()
+		for i:Entry in entries.get_children():
+			i.player_idx_owned = tfinamethis(i)
+		bingler.all_players.remove_at(maindicks)
+		print("DLT: Attempted to delete player ",bingler.all_players)
+		players.reload_all_players()
+		)
+
+func tfinamethis(i) -> Array:
+	print("DLT: Targetting ",i.player_idx_owned)
+	var reformed_owned:Array = i.player_idx_owned
+	for p in reformed_owned:
+		if p == get_index(): reformed_owned.erase(p)
+	var idx := 0
+	for p in reformed_owned:
+		if p > get_index():
+			reformed_owned[idx] = p-1
+		idx += 1
+	return reformed_owned
 
 func reload_player() -> void:
 	name_label.text = player_name
