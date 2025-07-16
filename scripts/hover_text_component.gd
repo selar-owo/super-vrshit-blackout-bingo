@@ -11,7 +11,10 @@ extends Node2D
 func _ready() -> void:
 	button_node.connect("mouse_entered",func()->void:change_label_state(true))
 	button_node.connect("mouse_exited",func()->void:change_label_state(false))
-	button_node.connect("button_down",func()->void:if !hide_label_on_click: return; change_label_state(false))
+	button_node.connect("button_down",func()->void:
+		if !hide_label_on_click: return
+		change_label_state(false)
+		)
 	label.label_settings = label_configfuckingthingidontknow
 	label.text = label_text
 

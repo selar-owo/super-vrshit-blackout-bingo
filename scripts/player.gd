@@ -18,6 +18,8 @@ signal player_toggled(tog:bool,color)
 @onready var edit_name: LineEdit = $EditName
 @onready var players: Node2D = $".."
 @onready var faggot: ColorRect = $Faggot
+@onready var add_player: Button = $AddPlayer
+@onready var delete_player: TextureButton = $DeletePlayer
 
 func _ready() -> void:
 	reload_player()
@@ -27,10 +29,6 @@ func _ready() -> void:
 		toggleanim.play(str("tog_",tog))
 		print(tog is bool)
 		emit_signal("player_toggled",tog,player_color)
-		)
-	edit_mode.change_edit_state.connect(func(state)->void:
-		reload_player()
-		update_player_edit_state(state)
 		)
 	edit_color_button.button_down.connect(func()->void:
 		colorpicke_thingt.visible = !colorpicke_thingt.visible
@@ -45,26 +43,38 @@ func _ready() -> void:
 		)
 	color_picker.color_changed.connect(func(clr) -> void:
 		if edit_color_button.disabled: return
+		bingler.all_players[self.get_index()][1] = clr
 		player_color = clr
 		edit_color_button.modulate = player_color
 		)
 	edit_name.text_changed.connect(func(txt)->void:
 		var myfaaart := edit_name.caret_column
+		bingler.all_players[self.get_index()][0] = txt
 		player_name = txt.to_lower()
 		name_label.text = player_name
 		edit_name.text = player_name
 		edit_name.caret_column = myfaaart
+		)
+	add_player.button_down.connect(func()->void:
+		bingler.all_players.append(["player",Color(0.9,0.8,0.9)])
+		await get_tree().process_frame
+		players.reload_all_players()
+		players.reload_all_players()
 		)
 
 func reload_player() -> void:
 	name_label.text = player_name
 	self.modulate = player_color
 	edit_color_button.modulate = player_color
+	add_player.visible = (name_label.text == "ADD PLR")
+	delete_player.visible = (bingler.editing and name_label.text != "ADD PLR")
+	edit_name.editable = !(name_label.text == "ADD PLR")
+	if name_label.text != "ADD PLR": return
+	edit_color_button.visible = false
 
 func update_player_edit_state(state) -> void:
 	gradient.visible = !state
 	color_sprite.visible = !state
-	edit_color_button.visible = state
 	button.visible = !state
 	faggot.visible = state
 	print("Buh Dih",state)
@@ -76,3 +86,5 @@ func update_player_edit_state(state) -> void:
 			button.set_pressed(false)
 			edit_name.text = player_name
 			color_picker.color = player_color
+	if (name_label.text == "ADD PLR"): return
+	edit_color_button.visible = state

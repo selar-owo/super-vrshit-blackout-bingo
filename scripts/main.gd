@@ -21,16 +21,61 @@ var quotes := [
 ]
 
 @onready var players: Node2D = $Players
-@export var all_players := {
-	"flutter": Color(0.934, 0.226, 0.226),
-	"tofucurry": Color(0.12, 0.613, 0.0),
-	"jaykeezy": Color(0.485, 0.488, 0.109),
-	"nari": Color(0.0, 0.75, 0.521),
-	"kobu": Color(0.131, 0.439, 0.836),
-	"aaron": Color(0.922, 0.13, 0.798),
-	"alina": Color(0.64, 0.305, 0.918),
-	"chills": Color(0.652, 0.441, 0.441),
+
+@export_category("BINGO DATA")
+@export var all_players := [
+	["flutter",Color(0.934, 0.226, 0.226)],
+	["tofucurry",Color(0.12, 0.613, 0.0)],
+	["jaykeezy",Color(0.485, 0.488, 0.109)],
+	["nari",Color(0.0, 0.75, 0.521)],
+	["kobu",Color(0.131, 0.439, 0.836)],
+	["aaron",Color(0.922, 0.13, 0.798)],
+	["alina",Color(0.64, 0.305, 0.918)],
+	["chills",Color(0.652, 0.441, 0.441)],
+]
+@export_category("BOARD DATA")
+@export var board_data := {
+0: [],
+1: [],
+2: [],
+3: [],
+4: [],
+5: [],
+6: [],
+7: [],
+8: [],
+9: [],
+10: [],
+11: [],
+12: [],
+13: [],
+14: [],
+15: [],
+16: [],
+17: [],
+18: [],
+19: [],
+20: [],
+21: [],
+22: [],
+23: [],
+24: []
 }
+@export_category("SETTINGS DATA")
+@export var settings_data := {
+	"music_muted": false,
+}
+
+#@export var all_players := {
+	#"flutter": Color(0.934, 0.226, 0.226),
+	#"tofucurry": Color(0.12, 0.613, 0.0),
+	#"jaykeezy": Color(0.485, 0.488, 0.109),
+	#"nari": Color(0.0, 0.75, 0.521),
+	#"kobu": Color(0.131, 0.439, 0.836),
+	#"aaron": Color(0.922, 0.13, 0.798),
+	#"alina": Color(0.64, 0.305, 0.918),
+	#"chills": Color(0.652, 0.441, 0.441),
+#}
 
 func _ready() -> void:
 	version_handler()

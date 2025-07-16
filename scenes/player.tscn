@@ -1,12 +1,16 @@
-[gd_scene load_steps=27 format=3 uid="uid://bwdjdohxpd5gk"]
+[gd_scene load_steps=31 format=3 uid="uid://bwdjdohxpd5gk"]
 
 [ext_resource type="Texture2D" uid="uid://wlkui1q8vnp6" path="res://sprites/color.png" id="1_1bxay"]
 [ext_resource type="Script" uid="uid://dadoqi51in5qi" path="res://scripts/player.gd" id="1_p0wnf"]
 [ext_resource type="LabelSettings" uid="uid://cuhpq5psc3ql8" path="res://shadersnmore/fontchoice.tres" id="2_1bxay"]
 [ext_resource type="Texture2D" uid="uid://cu2vqqjx1kisy" path="res://sprites/Gradient.png" id="3_5q0wv"]
+[ext_resource type="Texture2D" uid="uid://ch5juf331gey2" path="res://sprites/add_player.png" id="3_d2wvv"]
+[ext_resource type="Texture2D" uid="uid://cd26ao12ecs6l" path="res://sprites/deletePlayer.png" id="4_3v2ag"]
 [ext_resource type="PackedScene" uid="uid://c0lpkr8kyv1jt" path="res://scenes/button_sound_component.tscn" id="4_h7i7s"]
 [ext_resource type="Texture2D" uid="uid://ka0posfxa6qb" path="res://sprites/editcolor.png" id="4_tuyoq"]
 [ext_resource type="Texture2D" uid="uid://d4d5bevgmuueq" path="res://sprites/colorSelected.png" id="5_31v70"]
+[ext_resource type="Texture2D" uid="uid://dw4v16mxc13w3" path="res://sprites/deletePlayer-pressed.png" id="5_f1ej7"]
+[ext_resource type="Texture2D" uid="uid://kywj6rh82lfp" path="res://sprites/deletePlayer-hover.png" id="5_jej6c"]
 [ext_resource type="FontFile" uid="uid://c6ltgp5hhgwb4" path="res://farts/MucitanSans-Bold.otf" id="7_y4r1p"]
 [ext_resource type="Texture2D" uid="uid://b5uu310ykfh6p" path="res://sprites/editcolor-hover.png" id="8_smehm"]
 [ext_resource type="Texture2D" uid="uid://dp0hmj8gll2n3" path="res://sprites/editcolor-disabled.png" id="10_d2wvv"]
@@ -251,6 +255,7 @@ offset_top = -2.0
 offset_right = 92.0
 offset_bottom = 14.0
 color = Color(0.0600547, 0.023, 0.176, 0.461)
+metadata/_edit_use_anchors_ = true
 
 [node name="Button" type="Button" parent="."]
 offset_left = -2.14286
@@ -275,6 +280,61 @@ metadata/_edit_use_anchors_ = true
 
 [node name="ButtonSoundComponent" parent="Button" instance=ExtResource("4_h7i7s")]
 
+[node name="EditName" type="LineEdit" parent="."]
+z_index = 1
+offset_left = 10.0
+offset_top = -8.0
+offset_right = 112.0
+offset_bottom = 20.0
+focus_mode = 1
+theme_override_colors/font_color = Color(0.968627, 0.956863, 0.921569, 1)
+theme_override_fonts/font = ExtResource("7_y4r1p")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_y4r1p")
+text = "nameAAA"
+max_length = 9
+flat = true
+metadata/_edit_use_anchors_ = true
+
+[node name="DeletePlayer" type="TextureButton" parent="."]
+offset_left = 94.2857
+offset_top = 0.714282
+offset_right = 105.286
+offset_bottom = 11.7143
+texture_normal = ExtResource("4_3v2ag")
+texture_pressed = ExtResource("5_f1ej7")
+texture_hover = ExtResource("5_jej6c")
+texture_disabled = ExtResource("10_d2wvv")
+
+[node name="ButtonSoundComponent" parent="DeletePlayer" instance=ExtResource("4_h7i7s")]
+
+[node name="AddPlayer" type="Button" parent="."]
+visible = false
+offset_left = -2.14286
+offset_top = -0.714289
+offset_right = 90.8571
+offset_bottom = 13.2857
+focus_mode = 0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_h7i7s")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_5q0wv")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_h7i7s")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_drfw0")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_i7kyo")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_bi0ug")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ilkmj")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_jlfe6")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_5q0wv")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_njdyx")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_lalnp")
+action_mode = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="ButtonSoundComponent" parent="AddPlayer" instance=ExtResource("4_h7i7s")]
+
+[node name="ColorSprite" type="Sprite2D" parent="AddPlayer"]
+position = Vector2(8.21429, 6.78571)
+scale = Vector2(1.1039, 1.1039)
+texture = ExtResource("3_d2wvv")
+
 [node name="Gradient" type="Sprite2D" parent="."]
 self_modulate = Color(1, 1, 1, 0)
 position = Vector2(41.6762, 6.01008)
@@ -298,20 +358,7 @@ offset_right = 91.0
 offset_bottom = 19.0
 text = "name"
 label_settings = ExtResource("2_1bxay")
-
-[node name="EditName" type="LineEdit" parent="."]
-z_index = 1
-offset_left = 10.0
-offset_top = -8.0
-offset_right = 112.0
-offset_bottom = 20.0
-focus_mode = 1
-theme_override_colors/font_color = Color(0.968627, 0.956863, 0.921569, 1)
-theme_override_fonts/font = ExtResource("7_y4r1p")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_y4r1p")
-text = "nameAAA"
-max_length = 9
-flat = true
+metadata/_edit_use_anchors_ = true
 
 [node name="toggleanim" type="AnimationPlayer" parent="."]
 libraries = {

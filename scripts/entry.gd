@@ -21,7 +21,7 @@ func _ready() -> void:
 	label.text = entry_title
 	button.button_down.connect(func()->void:
 		reload_data(bingler.currently_selected)
-		save_states.save_bingoboard()
+		save_states.save_n_download()
 		)
 	button.mouse_entered.connect(func()->void:hover_anim(false))
 	button.mouse_exited.connect(func()->void:hover_anim(true))
