@@ -1,0 +1,66 @@
+[gd_scene load_steps=8 format=3 uid="uid://bdrwwytjhf4hw"]
+
+[ext_resource type="Texture2D" uid="uid://cu2vqqjx1kisy" path="res://sprites/Gradient.png" id="1_0e48y"]
+[ext_resource type="Shader" uid="uid://blldy8mn5itgd" path="res://shadersnmore/waber.gdshader" id="2_0e48y"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_epypp"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_0hol4"]
+noise = SubResource("FastNoiseLite_epypp")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_q6r6c"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_kdubu"]
+noise = SubResource("FastNoiseLite_q6r6c")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_d21ai"]
+shader = ExtResource("2_0e48y")
+shader_parameter/waterNoise = SubResource("NoiseTexture2D_kdubu")
+shader_parameter/waterDistortionNoise = SubResource("NoiseTexture2D_0hol4")
+shader_parameter/waterColor = Color(0.117, 0.27, 0.58, 1)
+shader_parameter/colorCorection = 0.35
+shader_parameter/distortionForce = 0.064
+shader_parameter/WDBrightness = 1.5
+shader_parameter/WDFreq = 0.6
+shader_parameter/WDSize = 0.9
+shader_parameter/WDSpeed = 4.0
+shader_parameter/tiling = Vector2(1, 1)
+shader_parameter/offSetSpeed = Vector2(0.1, 0.1)
+shader_parameter/backGroundDirX = 0.041
+shader_parameter/backGroundDirY = 0.041
+
+[node name="Node2D" type="Node2D"]
+
+[node name="BG" type="ColorRect" parent="."]
+offset_right = 650.0
+offset_bottom = 550.0
+mouse_filter = 2
+color = Color(0.541306, 0.650925, 0.839844, 1)
+metadata/_edit_lock_ = true
+
+[node name="BGGradient" type="TextureRect" parent="BG"]
+self_modulate = Color(0.0706177, 0, 0.695313, 0.604)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("1_0e48y")
+
+[node name="EditingBGWater" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_d21ai")
+offset_right = 650.0
+offset_bottom = 550.0
+mouse_filter = 2
+color = Color(1, 0.796, 0.651, 0)
+metadata/_edit_lock_ = true
+
+[node name="EditingBGDarkening" type="ColorRect" parent="EditingBGWater"]
+layout_mode = 0
+offset_right = 650.0
+offset_bottom = 550.0
+mouse_filter = 2
+color = Color(0, 0, 0, 0.425)
+metadata/_edit_lock_ = true

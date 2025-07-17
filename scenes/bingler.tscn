@@ -70,18 +70,18 @@ shader_parameter/wave_speed = 0.9
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_sdwt8"]
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_nf3ty"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_efwli"]
 noise = SubResource("FastNoiseLite_sdwt8")
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_de2m6"]
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_2bowk"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_aeuip"]
 noise = SubResource("FastNoiseLite_de2m6")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2ibqq"]
 shader = ExtResource("6_e3kio")
-shader_parameter/waterNoise = SubResource("NoiseTexture2D_2bowk")
-shader_parameter/waterDistortionNoise = SubResource("NoiseTexture2D_nf3ty")
+shader_parameter/waterNoise = SubResource("NoiseTexture2D_aeuip")
+shader_parameter/waterDistortionNoise = SubResource("NoiseTexture2D_efwli")
 shader_parameter/waterColor = Color(0.117, 0.27, 0.58, 1)
 shader_parameter/colorCorection = 0.35
 shader_parameter/distortionForce = 0.064
