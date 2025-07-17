@@ -1,10 +1,11 @@
-[gd_scene load_steps=22 format=3 uid="uid://bvmb8oothbh8h"]
+[gd_scene load_steps=23 format=3 uid="uid://bvmb8oothbh8h"]
 
 [ext_resource type="FontFile" uid="uid://c6ltgp5hhgwb4" path="res://farts/MucitanSans-Bold.otf" id="1_dqryq"]
 [ext_resource type="Script" uid="uid://bbx7c1e8xva1v" path="res://scripts/entry.gd" id="1_mvhdr"]
 [ext_resource type="PackedScene" uid="uid://c0lpkr8kyv1jt" path="res://scenes/button_sound_component.tscn" id="3_ufqy0"]
 [ext_resource type="PackedScene" uid="uid://3geqsdgorewt" path="res://scenes/player_done_indicator.tscn" id="5_13dps"]
 [ext_resource type="Texture2D" uid="uid://cu2vqqjx1kisy" path="res://sprites/Gradient.png" id="5_ve5g3"]
+[ext_resource type="Texture2D" uid="uid://c8ynex3n20vgh" path="res://sprites/wrench.png" id="6_hun0w"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ufqy0"]
 
@@ -234,3 +235,12 @@ position = Vector2(7.61905, 63.492)
 libraries = {
 &"": SubResource("AnimationLibrary_u4kja")
 }
+
+[node name="NameEditable" type="TextureRect" parent="."]
+visible = false
+offset_left = 51.0
+offset_top = 50.0
+offset_right = 77.0
+offset_bottom = 76.0
+mouse_filter = 2
+texture = ExtResource("6_hun0w")

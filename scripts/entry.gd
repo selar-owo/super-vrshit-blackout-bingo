@@ -16,6 +16,7 @@ live"
 @onready var removed: TextureRect = $TextureRect
 @onready var edit_entry: Node2D = $"../../EditEntry"
 @onready var rename_entry: LineEdit = $"../../EditEntry/RenameEntry"
+@onready var name_editable: TextureRect = $NameEditable
 
 var player_idx_owned := []
 
@@ -24,6 +25,7 @@ func _ready() -> void:
 	button.button_down.connect(func()->void:
 		if !bingler.editing:
 			reload_data(bingler.currently_selected)
+			save_states.save_n_download()
 			return
 		edit_entry.visible = !(edit_entry.global_position == self.global_position and edit_entry.visible)
 		edit_entry.global_position = self.global_position
@@ -39,7 +41,9 @@ func _ready() -> void:
 	button.mouse_exited.connect(func()->void:hover_anim(true))
 
 func hover_anim(hide) -> void:
-	if bingler.editing: return
+	if bingler.editing:
+		name_editable.visible = !hide
+		return
 	for i in players_done.get_children():
 		i.hide()
 	if bingler.currently_selected == player_idx_owned and !hide: return

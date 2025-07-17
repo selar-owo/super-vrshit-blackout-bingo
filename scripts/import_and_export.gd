@@ -6,6 +6,7 @@ extends Node2D
 @onready var file_dialog: FileDialog = $"../FileDialog"
 
 func _ready() -> void:
+	file_dialog.current_dir = OS.get_system_dir(OS.SYSTEM_DIR_DOWNLOADS)
 	settings_location.button_down.connect(func()->void:OS.shell_show_in_file_manager(OS.get_user_data_dir()))
 	import_settings.button_down.connect(func()->void:
 		file_dialog.popup_centered()
@@ -13,5 +14,5 @@ func _ready() -> void:
 	file_dialog.file_selected.connect(func(file)->void:
 		var confart := ConfigFile.new()
 		confart.load(file)
-		save_states.overrite_savefile(confart)
+		save_states.overrite_savefile(confart,file)
 		)

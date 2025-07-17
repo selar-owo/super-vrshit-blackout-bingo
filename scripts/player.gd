@@ -60,7 +60,7 @@ func _ready() -> void:
 		)
 	add_player.button_down.connect(func()->void:
 		var new_plr_idx:int = bingler.all_players.size()
-		bingler.all_players.append(["player",Color(0.9,0.8,0.9)])
+		bingler.all_players.append(["rename!",Color(0.9,0.8,0.9)])
 		players.get_child(new_plr_idx).edit_color_button.show()
 		players.reload_all_players()
 		)

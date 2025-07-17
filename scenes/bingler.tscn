@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=3 uid="uid://baaq25cb3jgsy"]
+[gd_scene load_steps=74 format=3 uid="uid://t03re0jfh4fd"]
 
 [ext_resource type="Script" uid="uid://chc44pjr73if1" path="res://scripts/main.gd" id="1_xo7oa"]
 [ext_resource type="Script" uid="uid://yr0mpru81dif" path="res://scripts/SaveStates.gd" id="2_chhg3"]
@@ -25,7 +25,6 @@
 [ext_resource type="AudioStream" uid="uid://cjtltd7ewpid4" path="res://sounds/wii-startup-sound.mp3" id="16_sdwt8"]
 [ext_resource type="AudioStream" uid="uid://b5lro2qd7k1j6" path="res://sounds/videoplayback (2) (1).mp3" id="17_nf3ty"]
 [ext_resource type="Texture2D" uid="uid://cdrywlrmyhxyd" path="res://sprites/settingslocation-hover.png" id="18_47i7e"]
-[ext_resource type="Texture2D" uid="uid://w72dycceiu0" path="res://sprites/logo-Sheetthattook10seconds.png" id="18_chhg3"]
 [ext_resource type="Script" uid="uid://5vhlx4ik22kp" path="res://scripts/edit_mode.gd" id="20_milh4"]
 [ext_resource type="Texture2D" uid="uid://4sorjxhccaer" path="res://sprites/editboard.png" id="20_x8d28"]
 [ext_resource type="Texture2D" uid="uid://cp0njdp6x2h7i" path="res://sprites/editboard-hover.png" id="21_sf11m"]
@@ -35,8 +34,10 @@
 [ext_resource type="PackedScene" uid="uid://b1avwq0he5c1t" path="res://scenes/hover_text_component.tscn" id="25_de2m6"]
 [ext_resource type="LabelSettings" uid="uid://lloo0tgfmrru" path="res://shadersnmore/fontchoice_whiteblack.tres" id="30_de2m6"]
 [ext_resource type="Shader" uid="uid://mnir6isox13e" path="res://shadersnmore/killyourselves.gdshader" id="34_de2m6"]
+[ext_resource type="Texture2D" uid="uid://bihlej0atiolf" path="res://sprites/logo2-Sheet.png" id="34_k1y0i"]
 [ext_resource type="FontFile" uid="uid://c6ltgp5hhgwb4" path="res://farts/MucitanSans-Bold.otf" id="36_2ibqq"]
 [ext_resource type="LabelSettings" uid="uid://cuhpq5psc3ql8" path="res://shadersnmore/fontchoice.tres" id="37_k1y0i"]
+[ext_resource type="Script" uid="uid://bche40686rbgw" path="res://scripts/notification_handler.gd" id="38_t6jiy"]
 
 [sub_resource type="Gradient" id="Gradient_maqf1"]
 offsets = PackedFloat32Array(0.00862069, 1)
@@ -44,7 +45,7 @@ colors = PackedColorArray(0, 0, 0, 1, 0.859375, 0.859375, 0.859375, 0)
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_yjvsj"]
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_byip8"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_t6jiy"]
 color_ramp = SubResource("Gradient_maqf1")
 noise = SubResource("FastNoiseLite_yjvsj")
 
@@ -53,7 +54,7 @@ colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_4k8pt"]
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_dq6rl"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_cswkh"]
 color_ramp = SubResource("Gradient_el7o5")
 noise = SubResource("FastNoiseLite_4k8pt")
 
@@ -62,8 +63,8 @@ shader = ExtResource("3_1onmn")
 shader_parameter/color = Color(0, 0, 0, 1)
 shader_parameter/lineWidth = 2.9
 shader_parameter/size = Vector2(20, 20)
-shader_parameter/noise = SubResource("NoiseTexture2D_byip8")
-shader_parameter/noise2 = SubResource("NoiseTexture2D_dq6rl")
+shader_parameter/noise = SubResource("NoiseTexture2D_t6jiy")
+shader_parameter/noise2 = SubResource("NoiseTexture2D_cswkh")
 shader_parameter/edge_fade = 1.0
 shader_parameter/wave_speed = 0.9
 
@@ -532,78 +533,78 @@ _data = {
 &"intro": SubResource("Animation_j6loh")
 }
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_1onmn"]
-atlas = ExtResource("18_chhg3")
-region = Rect2(0, 0, 450, 102)
+[sub_resource type="AtlasTexture" id="AtlasTexture_t6jiy"]
+atlas = ExtResource("34_k1y0i")
+region = Rect2(0, 0, 450, 83)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4rbpd"]
-atlas = ExtResource("18_chhg3")
-region = Rect2(450, 0, 450, 102)
+[sub_resource type="AtlasTexture" id="AtlasTexture_cswkh"]
+atlas = ExtResource("34_k1y0i")
+region = Rect2(450, 0, 450, 83)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_nuvpk"]
-atlas = ExtResource("18_chhg3")
-region = Rect2(900, 0, 450, 102)
+[sub_resource type="AtlasTexture" id="AtlasTexture_efwli"]
+atlas = ExtResource("34_k1y0i")
+region = Rect2(900, 0, 450, 83)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_47i7e"]
-atlas = ExtResource("18_chhg3")
-region = Rect2(1350, 0, 450, 102)
+[sub_resource type="AtlasTexture" id="AtlasTexture_aeuip"]
+atlas = ExtResource("34_k1y0i")
+region = Rect2(1350, 0, 450, 83)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_x8d28"]
-atlas = ExtResource("18_chhg3")
-region = Rect2(1800, 0, 450, 102)
+[sub_resource type="AtlasTexture" id="AtlasTexture_amsg2"]
+atlas = ExtResource("34_k1y0i")
+region = Rect2(1800, 0, 450, 83)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_sf11m"]
-atlas = ExtResource("18_chhg3")
-region = Rect2(2250, 0, 450, 102)
+[sub_resource type="AtlasTexture" id="AtlasTexture_4pred"]
+atlas = ExtResource("34_k1y0i")
+region = Rect2(2250, 0, 450, 83)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_lpvx3"]
-atlas = ExtResource("18_chhg3")
-region = Rect2(2700, 0, 450, 102)
+[sub_resource type="AtlasTexture" id="AtlasTexture_q3ewc"]
+atlas = ExtResource("34_k1y0i")
+region = Rect2(2700, 0, 450, 83)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_milh4"]
-atlas = ExtResource("18_chhg3")
-region = Rect2(3150, 0, 450, 102)
+[sub_resource type="AtlasTexture" id="AtlasTexture_jddun"]
+atlas = ExtResource("34_k1y0i")
+region = Rect2(3150, 0, 450, 83)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_e87ia"]
-atlas = ExtResource("18_chhg3")
-region = Rect2(3600, 0, 450, 102)
+[sub_resource type="AtlasTexture" id="AtlasTexture_2bfjt"]
+atlas = ExtResource("34_k1y0i")
+region = Rect2(3600, 0, 450, 83)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_vkrtc"]
-atlas = ExtResource("18_chhg3")
-region = Rect2(4050, 0, 450, 102)
+[sub_resource type="AtlasTexture" id="AtlasTexture_cme2h"]
+atlas = ExtResource("34_k1y0i")
+region = Rect2(4050, 0, 450, 83)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_f28py"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_1onmn")
+"texture": SubResource("AtlasTexture_t6jiy")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_4rbpd")
+"texture": SubResource("AtlasTexture_cswkh")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_nuvpk")
+"texture": SubResource("AtlasTexture_efwli")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_47i7e")
+"texture": SubResource("AtlasTexture_aeuip")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_x8d28")
+"texture": SubResource("AtlasTexture_amsg2")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_sf11m")
+"texture": SubResource("AtlasTexture_4pred")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_lpvx3")
+"texture": SubResource("AtlasTexture_q3ewc")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_milh4")
+"texture": SubResource("AtlasTexture_jddun")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_e87ia")
+"texture": SubResource("AtlasTexture_2bfjt")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_vkrtc")
+"texture": SubResource("AtlasTexture_cme2h")
 }],
 "loop": false,
 "name": &"default",
@@ -614,6 +615,67 @@ animations = [{
 shader = ExtResource("34_de2m6")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2ibqq"]
+
+[sub_resource type="Animation" id="Animation_k1y0i"]
+resource_name = "notif_appear"
+length = 4.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 4, 4.5),
+"transitions": PackedFloat32Array(0.353553, 1, 3.03143, 0.353553),
+"update": 0,
+"values": [Vector2(8, -27), Vector2(8, 5), Vector2(8, 5), Vector2(8, -27)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.5, 4.06667, 4.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.207843), Color(1, 1, 1, 0.207843), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0.207843)]
+}
+
+[sub_resource type="Animation" id="Animation_t6jiy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(8, -27)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.207843)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cswkh"]
+_data = {
+&"RESET": SubResource("Animation_t6jiy"),
+&"notif_appear": SubResource("Animation_k1y0i")
+}
 
 [node name="Bingler" type="Node2D"]
 script = ExtResource("1_xo7oa")
@@ -684,6 +746,7 @@ position = Vector2(409, 310)
 texture = ExtResource("5_nuvpk")
 
 [node name="Players" type="Node2D" parent="."]
+position = Vector2(1, 0)
 script = ExtResource("6_47i7e")
 
 [node name="Player1" parent="Players" instance=ExtResource("7_x8d28")]
@@ -1032,7 +1095,7 @@ scale = Vector2(1.22549, 1.22549)
 texture = ExtResource("4_4rbpd")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Intro2"]
-position = Vector2(325, 258)
+position = Vector2(323, 257)
 scale = Vector2(1.225, 1.225)
 sprite_frames = SubResource("SpriteFrames_f28py")
 autoplay = "default"
@@ -1097,3 +1160,22 @@ offset_bottom = 35.0
 scale = Vector2(0.6, 0.6)
 text = "rename( i dont feel like making it better)"
 label_settings = ExtResource("37_k1y0i")
+
+[node name="NotificationHandler" type="Node2D" parent="."]
+z_index = 20
+script = ExtResource("38_t6jiy")
+
+[node name="Label" type="Label" parent="NotificationHandler"]
+self_modulate = Color(1, 1, 1, 0.207843)
+offset_left = 8.0
+offset_top = -27.0
+offset_right = 279.0
+offset_bottom = -4.0
+text = "Imported [filename].svbb"
+label_settings = ExtResource("22_nf3ty")
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="NotificationHandler"]
+libraries = {
+&"": SubResource("AnimationLibrary_cswkh")
+}

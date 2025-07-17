@@ -8,6 +8,7 @@ var config := ConfigFile.new()
 @onready var music_toggle: TextureButton = $"../MusicToggle"
 @onready var bingler: Bi12ngler = $".."
 @onready var players: Node2D = $"../Players"
+@onready var notification_handler: Node2D = $"../NotificationHandler"
 
 func _ready() -> void:
 	var bingo_check = FileAccess.file_exists(save_file)
@@ -32,7 +33,7 @@ func _ready() -> void:
 	get_window().files_dropped.connect(func(file)->void:
 		var confart := ConfigFile.new()
 		confart.load(file[0])
-		overrite_savefile(confart)
+		overrite_savefile(confart,file[0])
 		)
 
 func load_bingoboard() -> void:
@@ -43,7 +44,8 @@ func load_bingoboard() -> void:
 	reload_all_entries_by_data(config.get_value("BINGO","board_data"))
 	print("load bingo with ",config.get_value("BINGO","board_data"))
 
-func overrite_savefile(conflick:ConfigFile) -> void:
+func overrite_savefile(conflick:ConfigFile,filename) -> void:
+	notification_handler.notif_appear(filename)
 	var darta:Dictionary = conflick.get_value("BINGO","bingo_data")
 	bingler.all_entries = darta["entries"]
 	bingler.all_players = darta["players"]

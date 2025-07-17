@@ -21,7 +21,7 @@ func _ready() -> void:
 		play_board.show()
 		animation_player.play("edit_enter")
 		players.reload_all_players()
-		music.set_stream(preload("res://sounds/editing.mp3"))
+		music.set_stream(preload("res://sounds/Thrash Machine.mp3"))
 		music.play()
 		music.stream_paused = music_toggle.is_pressed()
 		for i in players.get_children():
