@@ -17,6 +17,7 @@ live"
 @onready var edit_entry: Node2D = $"../../EditEntry"
 @onready var rename_entry: LineEdit = $"../../EditEntry/RenameEntry"
 @onready var name_editable: TextureRect = $NameEditable
+@onready var fuckme: AnimationPlayer = $"../../EditEntry/Fuckme"
 
 var player_idx_owned := []
 
@@ -29,7 +30,11 @@ func _ready() -> void:
 			return
 		edit_entry.visible = !(edit_entry.global_position == self.global_position and edit_entry.visible)
 		edit_entry.global_position = self.global_position
+		fuckme.play("new_animation")
+		fuckme.seek(0.0,true)
 		rename_entry.text = label.text
+		rename_entry.edit()
+		rename_entry.caret_column = rename_entry.text.length()
 		save_states.save_n_download()
 		)
 	rename_entry.text_changed.connect(func(newtext)->void:

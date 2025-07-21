@@ -22,6 +22,8 @@ signal player_toggled(tog:bool,color)
 @onready var delete_player: TextureButton = $DeletePlayer
 @onready var entries: Node2D = $"../../Entries"
 @onready var save_states: SaveStatesHandler = $"../../SaveStates"
+@onready var coming_up: AnimationPlayer = $"../../ColorpickeThingt/ComingUp"
+@onready var panel: Panel = $"../../ColorpickeThingt/Panel"
 
 func _ready() -> void:
 	reload_player()
@@ -36,6 +38,9 @@ func _ready() -> void:
 		colorpicke_thingt.visible = !colorpicke_thingt.visible
 		colorpicke_thingt.global_position.y = self.global_position.y
 		color_picker.color = player_color
+		panel.self_modulate = player_color
+		coming_up.play("comingUp")
+		coming_up.seek(0.0,true)
 		for i in players.get_children():
 			print("Bro im ab")
 			if colorpicke_thingt.visible: i.edit_name.mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -48,6 +53,7 @@ func _ready() -> void:
 		bingler.all_players[self.get_index()][1] = clr
 		player_color = clr
 		self.modulate = player_color
+		panel.self_modulate = player_color
 		entries.reload_all_entries()
 		)
 	edit_name.text_changed.connect(func(txt)->void:
@@ -67,8 +73,8 @@ func _ready() -> void:
 	delete_player.button_down.connect(func()->void:
 		players.get_child(bingler.all_players.size()).hide()
 		var maindicks := self.get_index()
-		for i:Entry in entries.get_children():
-			i.player_idx_owned = tfinamethis(i)
+		for i in bingler.board_data.values():
+			i = tfinamethis(i)
 		bingler.all_players.remove_at(maindicks)
 		print("DLT: Attempted to delete player ",bingler.all_players)
 		players.reload_all_players()
@@ -77,8 +83,8 @@ func _ready() -> void:
 		)
 
 func tfinamethis(i) -> Array:
-	print("DLT: Targetting ",i.player_idx_owned)
-	var reformed_owned:Array = i.player_idx_owned
+	print("DLT: Targetting ",i)
+	var reformed_owned:Array = i
 	for p in reformed_owned:
 		if p == get_index(): reformed_owned.erase(p)
 	var idx := 0
@@ -94,8 +100,10 @@ func reload_player() -> void:
 	add_player.visible = (name_label.text == "ADD PLR")
 	delete_player.visible = (bingler.editing and name_label.text != "ADD PLR")
 	edit_name.editable = !(name_label.text == "ADD PLR")
+	edit_name.mouse_filter = Control.MOUSE_FILTER_STOP
 	if name_label.text != "ADD PLR": return
 	edit_color_button.visible = false
+	edit_name.mouse_filter = Control.MOUSE_FILTER_IGNORE
 
 func update_player_edit_state(state) -> void:
 	gradient.visible = !state

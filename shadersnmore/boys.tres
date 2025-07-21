@@ -1,0 +1,26 @@
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://wuodwjoulnqa"]
+
+[ext_resource type="FontFile" uid="uid://c6ltgp5hhgwb4" path="res://farts/MucitanSans-Bold.otf" id="1_2icn4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jddun"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4pred"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q3ewc"]
+bg_color = Color(0, 0, 0, 0.329412)
+
+[resource]
+Button/fonts/font = ExtResource("1_2icn4")
+Label/colors/font_color = Color(1, 1, 1, 1)
+Label/colors/font_outline_color = Color(0, 0, 0, 1)
+Label/colors/font_shadow_color = Color(0, 0, 0, 0)
+Label/constants/line_spacing = 3
+Label/constants/outline_size = 0
+Label/constants/shadow_offset_x = 1
+Label/constants/shadow_offset_y = 1
+Label/constants/shadow_outline_size = 1
+Label/fonts/font = ExtResource("1_2icn4")
+Label/styles/normal = SubResource("StyleBoxEmpty_jddun")
+LineEdit/fonts/font = ExtResource("1_2icn4")
+LineEdit/styles/focus = SubResource("StyleBoxEmpty_4pred")
+LineEdit/styles/normal = SubResource("StyleBoxFlat_q3ewc")

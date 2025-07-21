@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="Super Blackout Bingo"
+config/tags=PackedStringArray("has_content")
 run/main_scene="res://scenes/bingler.tscn"
 config/use_custom_user_dir=true
 config/custom_user_dir_name="BlackoutBingoBoard"

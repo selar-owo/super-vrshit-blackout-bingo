@@ -1,7 +1,7 @@
 extends Node2D
 class_name Bi12ngler
 
-const VER := 4
+const VER := 5
 
 var editing := false
 
@@ -18,9 +18,11 @@ var quotes := [
 	"#KILLKOVU",
 	"Nari would Genuinely be a Perfect Undertale Character",
 	"Jacob Poland if you See this. Beat Undertale genocide its Really good",
+	"TRULEN. Dropping when i Feel like making it",
 ]
 
 @onready var players: Node2D = $Players
+@onready var entries: Node2D = $Entries
 
 @export_category("BINGO DATA")
 @export var all_players := []
@@ -104,6 +106,13 @@ func version_handler() -> void:
 		get_window().title = quotes.pick_random()
 		return
 	get_window().title += str(" U",VER)
+
+func reload_most_data() -> void:
+	var kys :=0
+	for i:Entry in entries.get_children():
+		i.entry_title = all_entries[kys]
+		board_data[kys] = i.player_idx_owned
+		kys+=1
 
 func updated_toggled() -> void:
 	currently_selected = []

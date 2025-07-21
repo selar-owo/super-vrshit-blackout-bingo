@@ -343,6 +343,7 @@ scale = Vector2(0.143164, 0.986908)
 texture = ExtResource("3_5q0wv")
 
 [node name="ColorSprite" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(6, 6)
 texture = ExtResource("1_1bxay")
 
@@ -367,11 +368,10 @@ libraries = {
 speed_scale = 2.0
 
 [node name="EditColorButton" type="TextureButton" parent="."]
-visible = false
-offset_left = 1.42857
+offset_left = 0.714284
 offset_top = 2.14286
-offset_right = 12.4286
-offset_bottom = 13.1429
+offset_right = 13.7143
+offset_bottom = 15.1429
 texture_normal = ExtResource("4_tuyoq")
 texture_hover = ExtResource("8_smehm")
 texture_disabled = ExtResource("10_d2wvv")

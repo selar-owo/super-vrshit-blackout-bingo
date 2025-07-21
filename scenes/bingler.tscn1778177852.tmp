@@ -1,10 +1,9 @@
-[gd_scene load_steps=93 format=3 uid="uid://t03re0jfh4fd"]
+[gd_scene load_steps=76 format=3 uid="uid://t03re0jfh4fd"]
 
 [ext_resource type="Script" uid="uid://chc44pjr73if1" path="res://scripts/main.gd" id="1_xo7oa"]
 [ext_resource type="Script" uid="uid://yr0mpru81dif" path="res://scripts/SaveStates.gd" id="2_chhg3"]
 [ext_resource type="Shader" uid="uid://bthbja5ox6f5f" path="res://shadersnmore/shitter.gdshader" id="3_1onmn"]
 [ext_resource type="Texture2D" uid="uid://bhnrwss8y7nru" path="res://sprites/logoShit.png" id="4_4rbpd"]
-[ext_resource type="AudioStream" uid="uid://vf54hovxcnu0" path="res://sounds/snd-swing-101soundboards.mp3" id="4_aeuip"]
 [ext_resource type="Texture2D" uid="uid://blvdcnielhieh" path="res://sprites/logo.png" id="4_chhg3"]
 [ext_resource type="Texture2D" uid="uid://cu2vqqjx1kisy" path="res://sprites/Gradient.png" id="4_f28py"]
 [ext_resource type="Texture2D" uid="uid://bkleyhserwlp4" path="res://sprites/chart.png" id="5_nuvpk"]
@@ -36,75 +35,11 @@
 [ext_resource type="LabelSettings" uid="uid://lloo0tgfmrru" path="res://shadersnmore/fontchoice_whiteblack.tres" id="30_de2m6"]
 [ext_resource type="Texture2D" uid="uid://bc5foxyfyc6s0" path="res://sprites/shuffle.png" id="32_efwli"]
 [ext_resource type="Texture2D" uid="uid://ckw10ol853bjc" path="res://sprites/shuffle-hover.png" id="33_aeuip"]
-[ext_resource type="Texture2D" uid="uid://bkh4tbivsil5l" path="res://sprites/shuffle-pressed.png" id="34_amsg2"]
 [ext_resource type="Shader" uid="uid://mnir6isox13e" path="res://shadersnmore/killyourselves.gdshader" id="34_de2m6"]
 [ext_resource type="Texture2D" uid="uid://bihlej0atiolf" path="res://sprites/logo2-Sheet.png" id="34_k1y0i"]
 [ext_resource type="FontFile" uid="uid://c6ltgp5hhgwb4" path="res://farts/MucitanSans-Bold.otf" id="36_2ibqq"]
 [ext_resource type="LabelSettings" uid="uid://cuhpq5psc3ql8" path="res://shadersnmore/fontchoice.tres" id="37_k1y0i"]
 [ext_resource type="Script" uid="uid://bche40686rbgw" path="res://scripts/notification_handler.gd" id="38_t6jiy"]
-[ext_resource type="Texture2D" uid="uid://dhhhaarq57sib" path="res://sprites/ninepatchbutshitty-inverted.png" id="39_4pred"]
-[ext_resource type="Theme" uid="uid://wuodwjoulnqa" path="res://shadersnmore/boys.tres" id="41_q3ewc"]
-
-[sub_resource type="Animation" id="Animation_amsg2"]
-resource_name = "shuffle"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../Entries:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:playing")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
-[sub_resource type="Animation" id="Animation_4pred"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../Entries:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:playing")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_q3ewc"]
-_data = {
-&"RESET": SubResource("Animation_4pred"),
-&"shuffle": SubResource("Animation_amsg2")
-}
 
 [sub_resource type="Gradient" id="Gradient_maqf1"]
 offsets = PackedFloat32Array(0.00862069, 1)
@@ -678,209 +613,10 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_q3ewc"]
-texture = ExtResource("39_4pred")
-texture_margin_left = 2.0
-texture_margin_top = 2.0
-texture_margin_right = 1.0
-texture_margin_bottom = 1.0
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2bowk"]
 shader = ExtResource("34_de2m6")
 
-[sub_resource type="Animation" id="Animation_q3ewc"]
-resource_name = "comingUp"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ColorPicker:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.433333),
-"transitions": PackedFloat32Array(0.196146, 1),
-"update": 0,
-"values": [Vector2(13.5714, -58), Vector2(25, -58)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Panel:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.433333),
-"transitions": PackedFloat32Array(0.196146, 1),
-"update": 0,
-"values": [Vector2(11.5714, -60), Vector2(23, -60)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.433333),
-"transitions": PackedFloat32Array(0.297302, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0.160784), Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_jddun"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ColorPicker:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(25, -58)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Panel:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(23, -60)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_2bfjt"]
-_data = {
-&"RESET": SubResource("Animation_jddun"),
-&"comingUp": SubResource("Animation_q3ewc")
-}
-
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2ibqq"]
-
-[sub_resource type="Animation" id="Animation_2bfjt"]
-resource_name = "new_animation"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Label:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.433333),
-"transitions": PackedFloat32Array(0.258817, 1),
-"update": 0,
-"values": [Vector2(-187, 20), Vector2(-203, 20)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Panel:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.433333),
-"transitions": PackedFloat32Array(0.258817, 1),
-"update": 0,
-"values": [Vector2(-192, 17), Vector2(-208, 17)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("RenameEntry:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.433333),
-"transitions": PackedFloat32Array(0.258817, 1),
-"update": 0,
-"values": [Vector2(-186, 35), Vector2(-202, 35)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath(".:modulate")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.433333),
-"transitions": PackedFloat32Array(0.25, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0.216), Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_cme2h"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Label:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-203, 20)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Panel:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-208, 17)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("RenameEntry:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-202, 35)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath(".:modulate")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_cme2h"]
-_data = {
-&"RESET": SubResource("Animation_cme2h"),
-&"new_animation": SubResource("Animation_2bfjt")
-}
 
 [sub_resource type="Animation" id="Animation_t6jiy"]
 length = 0.001
@@ -943,115 +679,6 @@ _data = {
 &"notif_appear": SubResource("Animation_k1y0i")
 }
 
-[sub_resource type="Animation" id="Animation_efwli"]
-resource_name = "closing"
-length = 2.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ColorRect:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("ColorRect:self_modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(0.31864, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Label:text")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.5, 1, 1.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": ["saving bingo board", "saving bingo board.", "saving bingo board..", "saving bingo board..."]
-}
-
-[sub_resource type="Animation" id="Animation_aeuip"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ColorRect:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("ColorRect:self_modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Label:text")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": ["saving bingo board...."]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_amsg2"]
-_data = {
-&"RESET": SubResource("Animation_aeuip"),
-&"closing": SubResource("Animation_efwli")
-}
-
 [node name="Bingler" type="Node2D"]
 script = ExtResource("1_xo7oa")
 metadata/_edit_lock_ = true
@@ -1063,16 +690,6 @@ script = ExtResource("2_chhg3")
 stream = ExtResource("17_nf3ty")
 volume_db = -12.356
 autoplay = true
-
-[node name="ShuffleBoard" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_aeuip")
-volume_db = -12.356
-
-[node name="TheShuffleInQuestion" type="AnimationPlayer" parent="ShuffleBoard"]
-libraries = {
-&"": SubResource("AnimationLibrary_q3ewc")
-}
-speed_scale = 2.0
 
 [node name="BG" type="ColorRect" parent="."]
 offset_right = 650.0
@@ -1456,7 +1073,6 @@ offset_top = 67.0
 offset_right = 48.0
 offset_bottom = 110.0
 texture_normal = ExtResource("32_efwli")
-texture_pressed = ExtResource("34_amsg2")
 texture_hover = ExtResource("33_aeuip")
 
 [node name="ButtonSoundComponent" parent="EditMode/ShuffleBoard" instance=ExtResource("12_vkrtc")]
@@ -1519,69 +1135,50 @@ scale = Vector2(1.4, 1.4)
 
 [node name="Panel" type="Panel" parent="ColorpickeThingt"]
 z_index = 1
-offset_left = 23.0
+offset_left = 22.5714
 offset_top = -60.0
-offset_right = 146.0
+offset_right = 145.571
 offset_bottom = 63.0
-theme_override_styles/panel = SubResource("StyleBoxTexture_q3ewc")
 
 [node name="ColorPicker" type="ColorPicker" parent="ColorpickeThingt"]
 z_index = 1
 material = SubResource("ShaderMaterial_2bowk")
-offset_left = 25.0
-offset_top = -58.0
-offset_right = 326.0
-offset_bottom = 243.0
+offset_left = 24.1428
+offset_top = -56.7143
+offset_right = 322.143
+offset_bottom = 242.286
 scale = Vector2(0.4, 0.4)
 mouse_filter = 0
-theme = ExtResource("41_q3ewc")
+picker_shape = 1
 can_add_swatches = false
 sampler_visible = false
 color_modes_visible = false
 sliders_visible = false
 presets_visible = false
 
-[node name="ComingUp" type="AnimationPlayer" parent="ColorpickeThingt"]
-libraries = {
-&"": SubResource("AnimationLibrary_2bfjt")
-}
-
 [node name="EditEntry" type="Node2D" parent="."]
 visible = false
 z_index = 4
-position = Vector2(211, 121)
-
-[node name="Panel" type="Panel" parent="EditEntry"]
-offset_left = -208.0
-offset_top = 17.0
-offset_right = -2.0
-offset_bottom = 55.0
-theme_override_styles/panel = SubResource("StyleBoxTexture_q3ewc")
+position = Vector2(211, 113)
 
 [node name="RenameEntry" type="LineEdit" parent="EditEntry"]
 offset_left = -202.0
-offset_top = 35.0
+offset_top = 27.0
 offset_right = 125.0
-offset_bottom = 63.0
+offset_bottom = 55.0
 scale = Vector2(0.6, 0.6)
-theme = ExtResource("41_q3ewc")
 theme_override_fonts/font = ExtResource("36_2ibqq")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_2ibqq")
 text = "crying/crashout live"
 
 [node name="Label" type="Label" parent="EditEntry"]
 offset_left = -203.0
-offset_top = 20.0
+offset_top = 12.0
 offset_right = 111.0
-offset_bottom = 43.0
+offset_bottom = 35.0
 scale = Vector2(0.6, 0.6)
-text = "edit entry!!"
+text = "rename( i dont feel like making it better)"
 label_settings = ExtResource("37_k1y0i")
-
-[node name="Fuckme" type="AnimationPlayer" parent="EditEntry"]
-libraries = {
-&"": SubResource("AnimationLibrary_cme2h")
-}
 
 [node name="NotificationHandler" type="Node2D" parent="."]
 z_index = 20
@@ -1601,28 +1198,3 @@ vertical_alignment = 1
 libraries = {
 &"": SubResource("AnimationLibrary_cswkh")
 }
-
-[node name="SavingBingoBoardBeforeClose" type="Node2D" parent="."]
-visible = false
-z_index = 4096
-
-[node name="ColorRect" type="ColorRect" parent="SavingBingoBoardBeforeClose"]
-visible = false
-self_modulate = Color(1, 1, 1, 0)
-offset_right = 650.0
-offset_bottom = 550.0
-color = Color(0, 0, 0, 0.658824)
-
-[node name="Label" type="Label" parent="SavingBingoBoardBeforeClose"]
-offset_right = 650.0
-offset_bottom = 550.0
-text = "saving bingo board...."
-label_settings = ExtResource("30_de2m6")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="End" type="AnimationPlayer" parent="SavingBingoBoardBeforeClose"]
-libraries = {
-&"": SubResource("AnimationLibrary_amsg2")
-}
-speed_scale = 2.0
