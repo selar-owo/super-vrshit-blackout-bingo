@@ -1,7 +1,7 @@
 extends Node2D
 class_name Bi12ngler
 
-const VER := 5
+const VER := 6
 
 var editing := false
 
@@ -104,8 +104,7 @@ func _ready() -> void:
 func version_handler() -> void:
 	if randi_range(1,100) == 1:
 		get_window().title = quotes.pick_random()
-		return
-	get_window().title += str(" U",VER)
+	get_window().title += str(" [U",VER,"]")
 
 func reload_most_data() -> void:
 	var kys :=0
