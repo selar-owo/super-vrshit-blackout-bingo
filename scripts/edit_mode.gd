@@ -16,9 +16,18 @@ extends Node2D
 @onready var the_shuffle_in_question: AnimationPlayer = $"../ShuffleBoard/TheShuffleInQuestion"
 signal change_edit_state(state)
 
+var slart_icons := ["res://sprites/icon8-export.png","res://sprites/icon8-editing.png"]
+
 func _ready() -> void:
+	var dih := 0
+	for i in slart_icons:
+		var image := Image.new()
+		image.load(i)
+		slart_icons[dih] = image
+		dih += 1
 	edit_board.button_down.connect(func()->void:
 		bingler.editing = true
+		DisplayServer.set_icon(slart_icons[1])
 		shuffle_board.visible = bingler.editing
 		print("Editing Test b")
 		edit_board.hide()
@@ -36,6 +45,7 @@ func _ready() -> void:
 		)
 	play_board.button_down.connect(func()->void:
 		bingler.editing = false
+		DisplayServer.set_icon(slart_icons[0])
 		shuffle_board.visible = bingler.editing
 		print("Editing Test t")
 		players.reload_all_players()

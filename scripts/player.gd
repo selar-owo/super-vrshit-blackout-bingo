@@ -71,7 +71,8 @@ func _ready() -> void:
 		players.reload_all_players()
 		)
 	delete_player.button_down.connect(func()->void:
-		players.get_child(bingler.all_players.size()).hide()
+		print(players.get_child(bingler.all_players.size()-1))
+		players.get_child(bingler.all_players.size()-1).hide()
 		var maindicks := self.get_index()
 		for i in bingler.board_data.values():
 			i = tfinamethis(i)

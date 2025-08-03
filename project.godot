@@ -27,8 +27,8 @@ run/stretch/mode="canvas_items"
 
 [display]
 
-window/size/viewport_width=650
-window/size/viewport_height=550
+window/size/viewport_width=600
+window/size/viewport_height=500
 window/stretch/mode="canvas_items"
 
 [dotnet]

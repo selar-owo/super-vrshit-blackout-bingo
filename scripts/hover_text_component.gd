@@ -25,5 +25,5 @@ func change_label_state(state) -> void:
 	if !get_window().has_focus() and label.modulate.a > 0:
 		animation_player.play(str("pop_false"))
 		return
-	if !get_window().has_focus(): return
+	#if !get_window().has_focus(): return
 	animation_player.play(str("pop_",state))

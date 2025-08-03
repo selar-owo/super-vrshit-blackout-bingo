@@ -19,6 +19,12 @@ var quotes := [
 	"Nari would Genuinely be a Perfect Undertale Character",
 	"Jacob Poland if you See this. Beat Undertale genocide its Really good",
 	"TRULEN. Dropping when i Feel like making it",
+	"ESCAPE V. Dropping when i Feel like making it",
+	"RATTO's SANDBOX 2. Ok this ones Never dropping",
+	"Fat IV Lobby wipe (Celestial Clip)",
+	"OK Jacob Poland could not Sit through Undertale Genocide My bad",
+	"Age: 4-75",
+	"I Shove a cold Metal Pipe down your Urethra",
 ]
 
 @onready var players: Node2D = $Players
@@ -98,8 +104,14 @@ var quotes := [
 	#"chills": Color(0.652, 0.441, 0.441),
 #}
 
+@onready var intro_animation: AnimationPlayer = $Intro3/IntroAnimation
+@onready var intro_3: Node2D = $Intro3
+
 func _ready() -> void:
 	version_handler()
+	intro_animation.connect("animation_finished",func(fart)->void:
+		intro_3.queue_free()
+		)
 
 func version_handler() -> void:
 	if randi_range(1,100) == 1:

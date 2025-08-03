@@ -1,20 +1,20 @@
-[gd_scene load_steps=93 format=3 uid="uid://t03re0jfh4fd"]
+[gd_scene load_steps=81 format=3 uid="uid://t03re0jfh4fd"]
 
 [ext_resource type="Script" uid="uid://chc44pjr73if1" path="res://scripts/main.gd" id="1_xo7oa"]
 [ext_resource type="Script" uid="uid://yr0mpru81dif" path="res://scripts/SaveStates.gd" id="2_chhg3"]
 [ext_resource type="Shader" uid="uid://bthbja5ox6f5f" path="res://shadersnmore/shitter.gdshader" id="3_1onmn"]
-[ext_resource type="Texture2D" uid="uid://bhnrwss8y7nru" path="res://sprites/logoShit.png" id="4_4rbpd"]
 [ext_resource type="AudioStream" uid="uid://vf54hovxcnu0" path="res://sounds/snd-swing-101soundboards.mp3" id="4_aeuip"]
+[ext_resource type="Texture2D" uid="uid://blvdcnielhieh" path="res://sprites/logo.png" id="4_chhg3"]
 [ext_resource type="Texture2D" uid="uid://cu2vqqjx1kisy" path="res://sprites/Gradient.png" id="4_f28py"]
 [ext_resource type="Texture2D" uid="uid://bkleyhserwlp4" path="res://sprites/chart.png" id="5_nuvpk"]
 [ext_resource type="Script" uid="uid://xf1bqx0fdeuf" path="res://scripts/players.gd" id="6_47i7e"]
 [ext_resource type="Shader" uid="uid://blldy8mn5itgd" path="res://shadersnmore/waber.gdshader" id="6_e3kio"]
 [ext_resource type="Texture2D" uid="uid://rs3jlhdyb4dd" path="res://sprites/logoEditMode.png" id="7_36km1"]
 [ext_resource type="PackedScene" uid="uid://bwdjdohxpd5gk" path="res://scenes/player.tscn" id="7_x8d28"]
-[ext_resource type="Texture2D" uid="uid://f1gnqf20selg" path="res://sprites/logonew.png" id="8_q3ewc"]
 [ext_resource type="PackedScene" uid="uid://bvmb8oothbh8h" path="res://scenes/entry.tscn" id="8_sf11m"]
 [ext_resource type="Texture2D" uid="uid://cgadmrfrv41wh" path="res://sprites/musicenabled.png" id="9_lpvx3"]
 [ext_resource type="Texture2D" uid="uid://c5uopote8loo7" path="res://sprites/musicdisbled.png" id="10_milh4"]
+[ext_resource type="LabelSettings" uid="uid://clex5gs1sm8bl" path="res://shadersnmore/fontchoice-black.tres" id="11_4pred"]
 [ext_resource type="Script" uid="uid://cw55yxuo17b7q" path="res://scripts/musictoggle.gd" id="11_e87ia"]
 [ext_resource type="Script" uid="uid://bstohtnj7lixc" path="res://scripts/entries.gd" id="12_2bowk"]
 [ext_resource type="Texture2D" uid="uid://bisry50c6ypqa" path="res://sprites/musicenabled-hover.png" id="12_47i7e"]
@@ -38,7 +38,6 @@
 [ext_resource type="Texture2D" uid="uid://ckw10ol853bjc" path="res://sprites/shuffle-hover.png" id="33_aeuip"]
 [ext_resource type="Texture2D" uid="uid://bkh4tbivsil5l" path="res://sprites/shuffle-pressed.png" id="34_amsg2"]
 [ext_resource type="Shader" uid="uid://mnir6isox13e" path="res://shadersnmore/killyourselves.gdshader" id="34_de2m6"]
-[ext_resource type="Texture2D" uid="uid://bihlej0atiolf" path="res://sprites/logo2-Sheet.png" id="34_k1y0i"]
 [ext_resource type="FontFile" uid="uid://c6ltgp5hhgwb4" path="res://farts/MucitanSans-Bold.otf" id="36_2ibqq"]
 [ext_resource type="LabelSettings" uid="uid://cuhpq5psc3ql8" path="res://shadersnmore/fontchoice.tres" id="37_k1y0i"]
 [ext_resource type="Script" uid="uid://bche40686rbgw" path="res://scripts/notification_handler.gd" id="38_t6jiy"]
@@ -467,216 +466,114 @@ _data = {
 &"edit_exit": SubResource("Animation_f28py")
 }
 
-[sub_resource type="Animation" id="Animation_sveqd"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Intro2/Logo:self_modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Intro2:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Intro2/Logo:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(325, 258)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Intro2:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Intro2/AnimatedSprite2D:visible")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
-[sub_resource type="Animation" id="Animation_j6loh"]
-resource_name = "intro"
+[sub_resource type="Animation" id="Animation_flj8d"]
+resource_name = "intrlofg"
 length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Intro2/Logo:self_modulate")
+tracks/0/path = NodePath("Chart:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.0666667, 0.433333, 0.833333),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.366667, 1.4),
+"transitions": PackedFloat32Array(0.297302, -3.36358, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 1), Color(2, 2, 2, 1), Color(1, 1, 1, 1)]
+"values": [Vector2(285, 268), Vector2(301, 252), Vector2(381, 252)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Intro2:modulate")
+tracks/1/path = NodePath("Chart:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.0666667, 1.23333, 1.9),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 1.13333),
+"transitions": PackedFloat32Array(0.189465, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+"values": [Vector2(-0.00250627, -0.00250626), Vector2(1, 1)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Intro2/Logo:position")
+tracks/2/path = NodePath(".:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 1.13333, 1.9),
-"transitions": PackedFloat32Array(1, 4.59479, 1),
+"times": PackedFloat32Array(1.13333, 1.53333),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(325, 258), Vector2(325, 258), Vector2(325, 474)]
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Intro2:visible")
+tracks/3/path = NodePath("Chart:rotation")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Intro2/AnimatedSprite2D:visible")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 1.13333),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
+"times": PackedFloat32Array(0, 1.1),
+"transitions": PackedFloat32Array(0.225313, 1),
+"update": 0,
+"values": [-0.523598, 0.0]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_wlbx0"]
+[sub_resource type="Animation" id="Animation_3f5wj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Chart:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(381, 252)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Chart:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Chart:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_oc4y3"]
 _data = {
-&"RESET": SubResource("Animation_sveqd"),
-&"intro": SubResource("Animation_j6loh")
+&"RESET": SubResource("Animation_3f5wj"),
+&"intrlofg": SubResource("Animation_flj8d")
 }
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_t6jiy"]
-atlas = ExtResource("34_k1y0i")
-region = Rect2(0, 0, 450, 83)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_cswkh"]
-atlas = ExtResource("34_k1y0i")
-region = Rect2(450, 0, 450, 83)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_efwli"]
-atlas = ExtResource("34_k1y0i")
-region = Rect2(900, 0, 450, 83)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_aeuip"]
-atlas = ExtResource("34_k1y0i")
-region = Rect2(1350, 0, 450, 83)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_amsg2"]
-atlas = ExtResource("34_k1y0i")
-region = Rect2(1800, 0, 450, 83)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4pred"]
-atlas = ExtResource("34_k1y0i")
-region = Rect2(2250, 0, 450, 83)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_q3ewc"]
-atlas = ExtResource("34_k1y0i")
-region = Rect2(2700, 0, 450, 83)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jddun"]
-atlas = ExtResource("34_k1y0i")
-region = Rect2(3150, 0, 450, 83)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2bfjt"]
-atlas = ExtResource("34_k1y0i")
-region = Rect2(3600, 0, 450, 83)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_cme2h"]
-atlas = ExtResource("34_k1y0i")
-region = Rect2(4050, 0, 450, 83)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_f28py"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_t6jiy")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_cswkh")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_efwli")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_aeuip")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_amsg2")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4pred")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_q3ewc")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jddun")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_2bfjt")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_cme2h")
-}],
-"loop": false,
-"name": &"default",
-"speed": 5.0
-}]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_q3ewc"]
 texture = ExtResource("39_4pred")
@@ -1075,8 +972,8 @@ libraries = {
 speed_scale = 2.0
 
 [node name="BG" type="ColorRect" parent="."]
-offset_right = 650.0
-offset_bottom = 550.0
+offset_right = 600.0
+offset_bottom = 500.0
 mouse_filter = 2
 color = Color(1, 0.796078, 0.65098, 1)
 metadata/_edit_lock_ = true
@@ -1095,8 +992,8 @@ texture = ExtResource("4_f28py")
 
 [node name="BGGrid" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_yjvsj")
-offset_right = 650.0
-offset_bottom = 550.0
+offset_right = 600.0
+offset_bottom = 500.0
 mouse_filter = 2
 color = Color(1, 0.796, 0.651, 1)
 metadata/_edit_lock_ = true
@@ -1104,35 +1001,43 @@ metadata/_edit_lock_ = true
 [node name="EditingBGWater" type="ColorRect" parent="."]
 visible = false
 material = SubResource("ShaderMaterial_2ibqq")
-offset_right = 650.0
-offset_bottom = 550.0
+offset_right = 600.0
+offset_bottom = 500.0
 mouse_filter = 2
 color = Color(1, 0.796, 0.651, 0)
 metadata/_edit_lock_ = true
 
 [node name="EditingBGDarkening" type="ColorRect" parent="EditingBGWater"]
 layout_mode = 0
-offset_right = 650.0
-offset_bottom = 550.0
+offset_right = 600.0
+offset_bottom = 500.0
 mouse_filter = 2
 color = Color(0, 0, 0, 0.425)
-metadata/_edit_lock_ = true
 
 [node name="Logo" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(410, 59)
-scale = Vector2(1.73333, 1.73333)
-texture = ExtResource("8_q3ewc")
+texture = ExtResource("4_chhg3")
 
 [node name="EditMode" type="Sprite2D" parent="Logo"]
 self_modulate = Color(1, 1, 1, 0)
 texture = ExtResource("7_36km1")
 
 [node name="Chart" type="Sprite2D" parent="."]
-position = Vector2(409, 310)
+position = Vector2(381, 252)
 texture = ExtResource("5_nuvpk")
 
+[node name="BingoName" type="Label" parent="Chart"]
+offset_left = -199.0
+offset_top = 201.0
+offset_right = 199.0
+offset_bottom = 224.0
+text = "my bingo board"
+label_settings = ExtResource("11_4pred")
+horizontal_alignment = 1
+
 [node name="Players" type="Node2D" parent="."]
-position = Vector2(1, 0)
+position = Vector2(7, -53)
 script = ExtResource("6_47i7e")
 
 [node name="Player1" parent="Players" instance=ExtResource("7_x8d28")]
@@ -1214,6 +1119,7 @@ player_name = "chills"
 player_color = Color(0.652344, 0.440842, 0.440842, 1)
 
 [node name="Entries" type="Node2D" parent="."]
+position = Vector2(-28, -58)
 script = ExtResource("12_2bowk")
 
 [node name="Entry1" parent="Entries" instance=ExtResource("8_sf11m")]
@@ -1360,58 +1266,21 @@ swarmed
 by chuds"
 
 [node name="MusicToggle" type="TextureButton" parent="."]
-offset_top = 504.0
-offset_right = 56.0
-offset_bottom = 550.0
+offset_left = 11.0
+offset_top = 464.0
+offset_right = 49.0
+offset_bottom = 492.0
 toggle_mode = true
 texture_normal = ExtResource("9_lpvx3")
 texture_pressed = ExtResource("10_milh4")
 texture_hover = ExtResource("12_47i7e")
 script = ExtResource("11_e87ia")
-metadata/_edit_use_anchors_ = true
 
 [node name="ButtonSoundComponent" parent="MusicToggle" instance=ExtResource("12_vkrtc")]
 
 [node name="HoverTextComponent2" parent="MusicToggle" instance=ExtResource("25_de2m6")]
-position = Vector2(31, -8)
+position = Vector2(20, -9)
 label_text = "music"
-label_configfuckingthingidontknow = ExtResource("22_nf3ty")
-
-[node name="ImportAndExport" type="Node2D" parent="."]
-script = ExtResource("13_f28py")
-
-[node name="ImportSettings" type="TextureButton" parent="ImportAndExport"]
-offset_left = 112.0
-offset_top = 506.0
-offset_right = 154.0
-offset_bottom = 549.0
-texture_normal = ExtResource("14_36km1")
-texture_hover = ExtResource("16_nuvpk")
-metadata/_edit_use_anchors_ = true
-
-[node name="ButtonSoundComponent" parent="ImportAndExport/ImportSettings" instance=ExtResource("12_vkrtc")]
-
-[node name="HoverTextComponent2" parent="ImportAndExport/ImportSettings" instance=ExtResource("25_de2m6")]
-position = Vector2(18, -8)
-hide_label_on_click = true
-label_text = "import bingo (svbb)"
-label_configfuckingthingidontknow = ExtResource("22_nf3ty")
-
-[node name="SettingsLocation" type="TextureButton" parent="ImportAndExport"]
-offset_left = 64.0
-offset_top = 506.0
-offset_right = 106.0
-offset_bottom = 549.0
-texture_normal = ExtResource("15_e3kio")
-texture_hover = ExtResource("18_47i7e")
-metadata/_edit_use_anchors_ = true
-
-[node name="ButtonSoundComponent" parent="ImportAndExport/SettingsLocation" instance=ExtResource("12_vkrtc")]
-
-[node name="HoverTextComponent2" parent="ImportAndExport/SettingsLocation" instance=ExtResource("25_de2m6")]
-position = Vector2(18, -8)
-hide_label_on_click = true
-label_text = "bingo data location"
 label_configfuckingthingidontknow = ExtResource("22_nf3ty")
 
 [node name="EditMode" type="Node2D" parent="."]
@@ -1428,7 +1297,7 @@ texture_hover = ExtResource("21_sf11m")
 [node name="ButtonSoundComponent" parent="EditMode/EditBoard" instance=ExtResource("12_vkrtc")]
 
 [node name="HoverTextComponent2" parent="EditMode/EditBoard" instance=ExtResource("25_de2m6")]
-position = Vector2(65, 20)
+position = Vector2(24, 49)
 hide_label_on_click = true
 label_text = "editor"
 label_configfuckingthingidontknow = ExtResource("22_nf3ty")
@@ -1444,7 +1313,7 @@ texture_hover = ExtResource("24_f28py")
 [node name="ButtonSoundComponent" parent="EditMode/PlayBoard" instance=ExtResource("12_vkrtc")]
 
 [node name="HoverTextComponent2" parent="EditMode/PlayBoard" instance=ExtResource("25_de2m6")]
-position = Vector2(65, 20)
+position = Vector2(24, 49)
 hide_label_on_click = true
 label_text = "play"
 label_configfuckingthingidontknow = ExtResource("30_de2m6")
@@ -1453,9 +1322,9 @@ label_configfuckingthingidontknow = ExtResource("30_de2m6")
 visible = false
 show_behind_parent = true
 offset_left = 6.0
-offset_top = 67.0
+offset_top = 451.0
 offset_right = 48.0
-offset_bottom = 110.0
+offset_bottom = 494.0
 texture_normal = ExtResource("32_efwli")
 texture_pressed = ExtResource("34_amsg2")
 texture_hover = ExtResource("33_aeuip")
@@ -1472,38 +1341,78 @@ libraries = {
 &"": SubResource("AnimationLibrary_e87ia")
 }
 
-[node name="Intro2" type="Node2D" parent="."]
-visible = false
+[node name="SettingsDialog" type="Node2D" parent="."]
 
-[node name="ColorRect" type="ColorRect" parent="Intro2"]
+[node name="ImportAndExport" type="Node2D" parent="."]
+script = ExtResource("13_f28py")
+
+[node name="ImportSettings" type="TextureButton" parent="ImportAndExport"]
+offset_left = 101.0
+offset_top = 5.0
+offset_right = 143.0
+offset_bottom = 48.0
+texture_normal = ExtResource("14_36km1")
+texture_hover = ExtResource("16_nuvpk")
+metadata/_edit_use_anchors_ = true
+
+[node name="ButtonSoundComponent" parent="ImportAndExport/ImportSettings" instance=ExtResource("12_vkrtc")]
+
+[node name="HoverTextComponent2" parent="ImportAndExport/ImportSettings" instance=ExtResource("25_de2m6")]
+position = Vector2(24, 49)
+hide_label_on_click = true
+label_text = "import (svbb)"
+label_configfuckingthingidontknow = ExtResource("22_nf3ty")
+
+[node name="SettingsLocation" type="TextureButton" parent="ImportAndExport"]
+offset_left = 53.0
+offset_top = 5.0
+offset_right = 95.0
+offset_bottom = 48.0
+texture_normal = ExtResource("15_e3kio")
+texture_hover = ExtResource("18_47i7e")
+metadata/_edit_use_anchors_ = true
+
+[node name="ButtonSoundComponent" parent="ImportAndExport/SettingsLocation" instance=ExtResource("12_vkrtc")]
+
+[node name="HoverTextComponent2" parent="ImportAndExport/SettingsLocation" instance=ExtResource("25_de2m6")]
+position = Vector2(24, 49)
+hide_label_on_click = true
+label_text = "data location"
+label_configfuckingthingidontknow = ExtResource("22_nf3ty")
+
+[node name="Intro3" type="Node2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+z_index = 4000
+
+[node name="ColorRect" type="ColorRect" parent="Intro3"]
 offset_right = 650.0
 offset_bottom = 550.0
+mouse_filter = 2
 color = Color(1, 0.796078, 0.65098, 1)
 metadata/_edit_lock_ = true
 
-[node name="IntroSOund" type="AudioStreamPlayer" parent="Intro2"]
+[node name="BGGrid" type="ColorRect" parent="Intro3/ColorRect"]
+material = SubResource("ShaderMaterial_yjvsj")
+offset_right = 600.0
+offset_bottom = 500.0
+mouse_filter = 2
+color = Color(1, 0.796, 0.651, 1)
+metadata/_edit_lock_ = true
+
+[node name="IntroSOund" type="AudioStreamPlayer" parent="Intro3"]
 stream = ExtResource("16_sdwt8")
 volume_db = -12.356
 autoplay = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Intro2"]
-root_node = NodePath("../..")
+[node name="IntroAnimation" type="AnimationPlayer" parent="Intro3"]
 libraries = {
-&"": SubResource("AnimationLibrary_wlbx0")
+&"": SubResource("AnimationLibrary_oc4y3")
 }
-autoplay = "intro"
+autoplay = "intrlofg"
 
-[node name="Logo" type="Sprite2D" parent="Intro2"]
-position = Vector2(325, 258)
-scale = Vector2(1.22549, 1.22549)
-texture = ExtResource("4_4rbpd")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Intro2"]
-position = Vector2(323, 257)
-scale = Vector2(1.225, 1.225)
-sprite_frames = SubResource("SpriteFrames_f28py")
-autoplay = "default"
-speed_scale = 2.0
+[node name="Chart" type="Sprite2D" parent="Intro3"]
+position = Vector2(381, 252)
+texture = ExtResource("5_nuvpk")
 
 [node name="FileDialog" type="FileDialog" parent="."]
 title = "Open a File"
@@ -1515,8 +1424,7 @@ use_native_dialog = true
 [node name="ColorpickeThingt" type="Node2D" parent="."]
 visible = false
 z_index = 5
-position = Vector2(-0.2857, 116)
-scale = Vector2(1.4, 1.4)
+position = Vector2(15.7143, 116)
 
 [node name="Panel" type="Panel" parent="ColorpickeThingt"]
 z_index = 1
@@ -1615,8 +1523,8 @@ offset_bottom = 550.0
 color = Color(0, 0, 0, 0.658824)
 
 [node name="Label" type="Label" parent="SavingBingoBoardBeforeClose"]
-offset_right = 650.0
-offset_bottom = 550.0
+offset_right = 600.0
+offset_bottom = 500.0
 text = "saving bingo board...."
 label_settings = ExtResource("30_de2m6")
 horizontal_alignment = 1
