@@ -167,12 +167,11 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_ujevm")
 offset_top = -18.0
 offset_right = 78.0
 offset_bottom = 93.0
-text = "crying/crashout  live"
+text = "entry"
 label_settings = SubResource("LabelSettings_0tyro")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
-clip_text = true
 
 [node name="PlayersDone" type="Node2D" parent="."]
 position = Vector2(1.19209e-07, 1.19209e-07)

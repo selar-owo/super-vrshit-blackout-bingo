@@ -31,7 +31,8 @@ var quotes := [
 @onready var entries: Node2D = $Entries
 
 @export_category("BINGO DATA")
-@export var all_players := []
+@export var bingo_name := "my bingo board"
+@export var all_players := [["player 1",Color(0.859, 0.107, 0.107)],["player 2",Color(0.055, 0.365, 0.957)]]
 @export var all_entries := {
 0: "",
 1: "",
@@ -39,9 +40,9 @@ var quotes := [
 3: "",
 4: "",
 5: "",
-6: "",
-7: "",
-8: "",
+6: "click on a player,",
+7: "and then click on me to",
+8: "mark me completed!",
 9: "",
 10: "",
 11: "",
@@ -49,9 +50,9 @@ var quotes := [
 13: "",
 14: "",
 15: "",
-16: "",
-17: "",
-18: "",
+16: "click the editor button,",
+17: "and then click me to edit me!",
+18: "(or you could load a bingo!)",
 19: "",
 20: "",
 21: "",
@@ -112,6 +113,13 @@ func _ready() -> void:
 	intro_animation.connect("animation_finished",func(fart)->void:
 		intro_3.queue_free()
 		)
+
+@onready var bingo_name_label: Label = $Chart/BingoName
+@onready var rename_bingo: LineEdit = $Chart/RenameBingo
+func rename_update(newname) -> void:
+	bingo_name = newname.to_lower()
+	bingo_name_label.text = bingo_name
+	rename_bingo.text = bingo_name
 
 func version_handler() -> void:
 	if randi_range(1,100) == 1:

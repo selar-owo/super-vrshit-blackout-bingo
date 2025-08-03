@@ -17,6 +17,7 @@ func _ready() -> void:
 	if !bingo_check:
 		config.set_value("BINGO","board_data",{0: [],1: [],2: [],3: [],4: [],5: [],6: [],7: [],8: [],9: [],10: [],11: [],12: [],13: [],14: [],15: [],16: [],17: [],18: [],19: [],20: [],21: [],22: [],23: [],24: []})
 		config.set_value("BINGO","bingo_data",{
+			"bingo_name": bingler.bingo_name,
 			"entries": bingler.all_entries,
 			"players": bingler.all_players,
 		})
@@ -37,8 +38,11 @@ func _ready() -> void:
 
 func load_bingoboard() -> void:
 	var fart:Dictionary= config.get_value("BINGO","bingo_data")
+	if fart.has("bingo_name"): bingler.bingo_name = fart["bingo_name"]
+	else: bingler.bingo_name = "a bingo board"
 	bingler.all_entries = fart["entries"]
 	bingler.all_players = fart["players"]
+	bingler.rename_update(bingler.bingo_name)
 	players.reload_all_players()
 	reload_all_entries_by_data(config.get_value("BINGO","board_data"))
 	bingler.reload_most_data()
@@ -47,8 +51,11 @@ func load_bingoboard() -> void:
 func overrite_savefile(conflick:ConfigFile,filename) -> void:
 	notification_handler.notif_appear(filename)
 	var darta:Dictionary = conflick.get_value("BINGO","bingo_data")
+	if darta.has("bingo_name"): bingler.bingo_name = darta["bingo_name"]
+	else: bingler.bingo_name = "a bingo board"
 	bingler.all_entries = darta["entries"]
 	bingler.all_players = darta["players"]
+	bingler.rename_update(bingler.bingo_name)
 	players.reload_all_players()
 	reload_all_entries_by_data(conflick.get_value("BINGO","board_data"))
 	bingler.reload_most_data()
@@ -75,6 +82,7 @@ func save_bingoboard() -> void:
 func download_all_to_file() -> void:
 	config.set_value("BINGO","board_data",bingler.board_data)
 	var formed_bingodata := {
+		"bingo_name": bingler.bingo_name,
 		"entries": bingler.all_entries,
 		"players": bingler.all_players,
 	}

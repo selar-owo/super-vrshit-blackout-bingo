@@ -11,10 +11,14 @@ extends Node2D
 @onready var save_states: SaveStatesHandler = $"../SaveStates"
 @onready var edit_entry: Node2D = $"../EditEntry"
 @onready var shuffle_board: TextureButton = $ShuffleBoard
+@onready var iamhavingsex: Node2D = $ShuffleBoard/HoverTextComponent2
 @onready var entries: Node2D = $"../Entries"
 @onready var farting_shuffle_board: AudioStreamPlayer = $"../ShuffleBoard"
 @onready var the_shuffle_in_question: AnimationPlayer = $"../ShuffleBoard/TheShuffleInQuestion"
 signal change_edit_state(state)
+
+@onready var bingo_name: Label = $"../Chart/BingoName"
+@onready var rename_bingo: LineEdit = $"../Chart/RenameBingo"
 
 var slart_icons := ["res://sprites/icon8-export.png","res://sprites/icon8-editing.png"]
 
@@ -27,6 +31,8 @@ func _ready() -> void:
 		dih += 1
 	edit_board.button_down.connect(func()->void:
 		bingler.editing = true
+		bingo_name.visible = !bingler.editing
+		rename_bingo.visible = bingler.editing
 		DisplayServer.set_icon(slart_icons[1])
 		shuffle_board.visible = bingler.editing
 		print("Editing Test b")
@@ -45,6 +51,9 @@ func _ready() -> void:
 		)
 	play_board.button_down.connect(func()->void:
 		bingler.editing = false
+		bingler.rename_update(rename_bingo.text)
+		bingo_name.visible = !bingler.editing
+		rename_bingo.visible = bingler.editing
 		DisplayServer.set_icon(slart_icons[0])
 		shuffle_board.visible = bingler.editing
 		print("Editing Test t")
@@ -61,6 +70,9 @@ func _ready() -> void:
 		save_states.save_n_download()
 		)
 	shuffle_board.button_down.connect(func()->void:
+		if iamhavingsex.label.text != "are you sure?":
+			iamhavingsex.label.text = str("are you sure?")
+			return
 		var faggot := []
 		var dx := 0
 		for i:Entry in entries.get_children():
@@ -80,5 +92,10 @@ func _ready() -> void:
 		save_states.save_n_download()
 		the_shuffle_in_question.play("shuffle")
 		the_shuffle_in_question.seek(0.0,true)
+		iamhavingsex.label.text = str("shuffle board")
 		print("Shuffled Board ",bingler.all_entries)
+		)
+	iamhavingsex.animation_player.connect("animation_finished",func(anim)->void:
+		if anim != "pop_false": return
+		iamhavingsex.label.text = str("shuffle board")
 		)
