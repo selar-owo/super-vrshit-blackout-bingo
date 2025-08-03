@@ -39,7 +39,6 @@
 [ext_resource type="Texture2D" uid="uid://bkh4tbivsil5l" path="res://sprites/shuffle-pressed.png" id="34_amsg2"]
 [ext_resource type="Shader" uid="uid://mnir6isox13e" path="res://shadersnmore/killyourselves.gdshader" id="34_de2m6"]
 [ext_resource type="FontFile" uid="uid://c6ltgp5hhgwb4" path="res://farts/MucitanSans-Bold.otf" id="36_2ibqq"]
-[ext_resource type="LabelSettings" uid="uid://cuhpq5psc3ql8" path="res://shadersnmore/fontchoice.tres" id="37_k1y0i"]
 [ext_resource type="Script" uid="uid://bche40686rbgw" path="res://scripts/notification_handler.gd" id="38_t6jiy"]
 [ext_resource type="Texture2D" uid="uid://dhhhaarq57sib" path="res://sprites/ninepatchbutshitty-inverted.png" id="39_4pred"]
 [ext_resource type="Theme" uid="uid://wuodwjoulnqa" path="res://shadersnmore/boys.tres" id="41_q3ewc"]
@@ -671,6 +670,13 @@ _data = {
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2ibqq"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_amsg2"]
+font = ExtResource("36_2ibqq")
+font_size = 14
+font_color = Color(0.0509804, 0.00784314, 0.0705882, 1)
+outline_size = 4
+outline_color = Color(0.968627, 0.956863, 0.921569, 1)
+
 [sub_resource type="Animation" id="Animation_cme2h"]
 length = 0.001
 tracks/0/type = "value"
@@ -683,39 +689,15 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-203, 20)]
+"values": [Vector2(-25, -25)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Panel:position")
+tracks/1/path = NodePath("Label:self_modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-208, 17)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("RenameEntry:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-202, 35)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath(".:modulate")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -724,6 +706,7 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id="Animation_2bfjt"]
 resource_name = "new_animation"
+length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -731,46 +714,22 @@ tracks/0/path = NodePath("Label:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.433333),
-"transitions": PackedFloat32Array(0.258817, 1),
+"times": PackedFloat32Array(0.0333333, 0.466667),
+"transitions": PackedFloat32Array(0.34151, 1),
 "update": 0,
-"values": [Vector2(-187, 20), Vector2(-203, 20)]
+"values": [Vector2(-25, -40), Vector2(-25, -25)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Panel:position")
+tracks/1/path = NodePath("Label:self_modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.433333),
-"transitions": PackedFloat32Array(0.258817, 1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(-192, 17), Vector2(-208, 17)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("RenameEntry:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.433333),
-"transitions": PackedFloat32Array(0.258817, 1),
-"update": 0,
-"values": [Vector2(-186, 35), Vector2(-202, 35)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath(".:modulate")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.433333),
-"transitions": PackedFloat32Array(0.25, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0.216), Color(1, 1, 1, 1)]
+"values": [Color(1, 1, 1, 0.192), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_cme2h"]
@@ -1472,39 +1431,45 @@ libraries = {
 [node name="EditEntry" type="Node2D" parent="."]
 visible = false
 z_index = 4
-position = Vector2(211, 121)
-
-[node name="Panel" type="Panel" parent="EditEntry"]
-offset_left = -208.0
-offset_top = 17.0
-offset_right = -2.0
-offset_bottom = 55.0
-theme_override_styles/panel = SubResource("StyleBoxTexture_q3ewc")
+position = Vector2(183.5, 134)
 
 [node name="RenameEntry" type="LineEdit" parent="EditEntry"]
-offset_left = -202.0
-offset_top = 35.0
-offset_right = 125.0
-offset_bottom = 63.0
-scale = Vector2(0.6, 0.6)
+self_modulate = Color(1, 1, 1, 0)
+offset_left = 1.0
+offset_top = -1.0
+offset_right = 78.0
+offset_bottom = 76.0
+mouse_filter = 2
 theme = ExtResource("41_q3ewc")
 theme_override_fonts/font = ExtResource("36_2ibqq")
+theme_override_font_sizes/font_size = 14
 theme_override_styles/focus = SubResource("StyleBoxEmpty_2ibqq")
-text = "crying/crashout live"
+text = "entry"
+alignment = 1
+keep_editing_on_text_submit = true
 
 [node name="Label" type="Label" parent="EditEntry"]
-offset_left = -203.0
-offset_top = 20.0
-offset_right = 111.0
-offset_bottom = 43.0
-scale = Vector2(0.6, 0.6)
-text = "edit entry!!"
-label_settings = ExtResource("37_k1y0i")
+offset_left = -25.0
+offset_top = -25.0
+offset_right = 103.0
+offset_bottom = -2.0
+text = "editing entry ↓"
+label_settings = SubResource("LabelSettings_amsg2")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Fuckme" type="AnimationPlayer" parent="EditEntry"]
 libraries = {
 &"": SubResource("AnimationLibrary_cme2h")
 }
+speed_scale = 1.5
+
+[node name="Sprite2D" type="Sprite2D" parent="EditEntry"]
+self_modulate = Color(0, 0, 0, 0.365)
+position = Vector2(38.75, 38.25)
+scale = Vector2(1.00649, 1.00649)
+texture = ExtResource("4_f28py")
+flip_v = true
 
 [node name="NotificationHandler" type="Node2D" parent="."]
 z_index = 20

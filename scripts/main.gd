@@ -51,7 +51,7 @@ var quotes := [
 14: "",
 15: "",
 16: "click the editor button,",
-17: "and then click me to edit me!",
+17: "and then click and type to edit me!",
 18: "(or you could load a bingo!)",
 19: "",
 20: "",

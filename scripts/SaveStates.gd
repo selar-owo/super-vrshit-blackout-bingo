@@ -65,7 +65,9 @@ func reload_all_entries_by_data(data) -> void:
 		i.reload_data(data[i.get_index()],true)
 		print(i," ",data[i.get_index()])
 
+@onready var rename_bingo: LineEdit = $"../Chart/RenameBingo"
 func save_n_download() -> void:
+	bingler.rename_update(rename_bingo.text)
 	bingler.reload_most_data()
 	players.reload_all_players()
 	reload_all_entries_by_data(bingler.board_data)
